@@ -4,6 +4,7 @@
     <div id="nav">
       <NavBar :key="componentKey" />
     </div>
+    
     <router-view />
     <my-footer />
   </div>
