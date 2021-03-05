@@ -2,8 +2,6 @@
     <form id="register" autocomplete="off">
 
         <h1>Registrati</h1>
-        
-        
 
         <div class="form-floating">
             <input class="form-control" type="text" name="firstname" v-model="input.firstName" v-bind:class="{'is-invalid': errClass.isFn}" placeholder="Nome" />

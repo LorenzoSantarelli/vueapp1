@@ -37,7 +37,7 @@ export default {
                 this.isUser = true;
             }
             else if (!this.validEmail(this.input.username)) {
-                this.errors.push("L'email inserita non è valida");
+                this.errors.push("L' email inserita non è valida");
                 this.isUser = true;
             }
             if (!this.input.password) {

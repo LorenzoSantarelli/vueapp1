@@ -14,7 +14,7 @@ export default {
                 password: "",
                 confpw: ""
             },
-            errors: [],
+            errors:[],
             errClass: {
                 isFn: false,
                 isLn: false,
