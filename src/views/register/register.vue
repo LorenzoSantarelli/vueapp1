@@ -1,30 +1,30 @@
-<template>
+<!--<template>
     <form id="register" autocomplete="off">
 
         <h1>Registrati</h1>
 
         <div class="form-floating">
-            <input class="form-control" type="text" name="firstname" v-model="input.firstName" v-bind:class="{'is-invalid': errClass.isFn}" placeholder="Nome" />
+            <input class="form-control" type="text" firstName="firstfirstName" v-model="input.firstfirstName" v-bind:class="{'is-invalid': errClass.isFn}" placeholder="Nome" />
             <label for="floatingInputPw">Nome</label>
         </div>
 
         <div class="form-floating">
-            <input class="form-control" type="text" name="lastName" v-model="input.lastName" v-bind:class="{'is-invalid': errClass.isLn}" placeholder="Cognome" />
+            <input class="form-control" type="text" firstName="lastfirstName" v-model="input.lastfirstName" v-bind:class="{'is-invalid': errClass.isLn}" placeholder="Cognome" />
             <label for="floatingInputPw">Cognome</label>
         </div>
 
         <div class="form-floating">
-            <input class="form-control" type="email" name="email" v-model="input.email" v-bind:class="{'is-invalid': errClass.isMail}" placeholder="E-Mail" />
+            <input class="form-control" type="email" firstName="email" v-model="input.email" v-bind:class="{'is-invalid': errClass.isMail}" placeholder="E-Mail" />
             <label for="floatingInputPw">Email</label>
         </div>
 
         <div class="form-floating">
-            <input class="form-control" type="password" name="password" v-model="input.password" v-bind:class="{'is-invalid': errClass.isPw}" placeholder="Password" />
+            <input class="form-control" type="password" firstName="password" v-model="input.password" v-bind:class="{'is-invalid': errClass.isPw}" placeholder="Password" />
             <label for="floatingInputPw">Password</label>
         </div>
 
         <div class="form-floating">
-            <input class="form-control" type="password" name="passwordconfirm" v-model="input.confpw" v-bind:class="{'is-invalid': errClass.isPw2}" placeholder="Conferma Password" />
+            <input class="form-control" type="password" firstName="passwordconfirm" v-model="input.confpw" v-bind:class="{'is-invalid': errClass.isPw2}" placeholder="Conferma Password" />
             <label for="floatingInputPw">Conferma Password</label>
         </div>
 
@@ -40,6 +40,93 @@
             </div>
             Registrati</button>
     </form>
+</template>-->
+
+<template>
+  <div>
+    <b-form @submit.stop.prevent="onSubmit" id="register" autocomplete="off">
+      <b-form-group id="example-input-group-1" label="Nome" label-for="example-input-1">
+        <b-form-input
+          id="example-input-1"
+          name="example-input-1"
+          v-model="$v.form.firstName.$model"
+          :state="validateState('firstName')"
+          aria-describedby="input-1-live-feedback"
+        ></b-form-input>
+
+        <b-form-invalid-feedback
+          id="input-1-live-feedback"
+        >Devi inserire un nome.</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group id="example-input-group-2" label="Cognome" label-for="example-input-2">
+        <b-form-input
+          id="example-input-2"
+          name="example-input-2"
+          v-model="$v.form.lastName.$model"
+          :state="validateState('lastName')"
+          aria-describedby="input-2-live-feedback"
+        ></b-form-input>
+
+        <b-form-invalid-feedback
+          id="input-2-live-feedback"
+        >Devi inserire un cognome.</b-form-invalid-feedback>
+      </b-form-group>
+
+        <b-form-group id="example-input-group-3" label="Email" label-for="example-input-3">
+        <b-form-input
+          type="email"
+          id="example-input-3"
+          name="example-input-3"
+          v-model="$v.form.email.$model"
+          :state="validateState('email')"
+          aria-describedby="input-3-live-feedback"
+        ></b-form-input>
+
+        <b-form-invalid-feedback
+          id="input-3-live-feedback"
+        >{{ mailErr }}</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group id="example-input-group-4" label="Password" label-for="example-input-4">
+        <b-form-input
+          type="password"
+          id="example-input-4"
+          name="example-input-4"
+          v-model="$v.form.password.$model"
+          :state="validateState('password')"
+          aria-describedby="input-4-live-feedback"
+        ></b-form-input>
+
+        <b-form-invalid-feedback
+          id="input-4-live-feedback"
+        >{{ pwErr }}</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group id="example-input-group-5" label="Conferma Password" label-for="example-input-5">
+        <b-form-input
+          type="password"
+          id="example-input-5"
+          name="example-input-5"
+          v-model="$v.form.confpw.$model"
+          :state="validateState('confpw')"
+          aria-describedby="input-5-live-feedback"
+        ></b-form-input>
+
+        <b-form-invalid-feedback
+          id="input-5-live-feedback"
+        >Le password devono coincidere.</b-form-invalid-feedback>
+      </b-form-group>
+
+      <span class="text-danger" v-if="errors.length"> {{ errors[0] }} </span>
+
+      <b-button type="submit" class="register-btn" variant="primary">Registrati
+          <div class="spinner-border" role="status" v-if="loading === true">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+      </b-button>
+    </b-form>
+  </div>
 </template>
 
 <script>
