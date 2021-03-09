@@ -2,11 +2,14 @@
     <form id="login" autocomplete="off">
         <h1>Login</h1>
 
+        <!-- Visualizzazione degli alert con gli errori -->
         
 
         <!-- Form con input di email password e bottone di recupero password e submit -->
         <div class="form-floating">
             <input class="form-control" type="text" id="floatingInputUser" name="username" v-model="input.username"
+                v-bind:class="{'is-invalid': isUser}" />
+            <label v-if="errors.lenght" for="floatingInputUser">Inserire lo username</label>
                 v-bind:class="{ 'is-invalid' : isUser}" placeholder="Username" />
             <label for="floatingInputUser" >Username</label>
             <!-- <label class="text-danger" v-if="errors[0] === 'Lo username è obbligatorio'" for="floatingInputUser">{{errors[0]}}</label> -->
