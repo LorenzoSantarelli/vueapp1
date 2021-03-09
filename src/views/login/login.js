@@ -76,5 +76,8 @@ export default {
         recover() {
             this.$router.replace({ name: "recover" });
         }
-    }
+    },
+    mounted(){
+        this.$root.$refs.App.forceRerender();
+  },
 }
