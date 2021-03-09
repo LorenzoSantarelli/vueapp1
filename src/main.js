@@ -5,12 +5,22 @@ import router from './router';
 import axios from 'axios';      
 import './style.css';           
 import moment from 'moment';    
-
 import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
- 
+
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import Vuelidate from 'vuelidate'
+
+// Uso di vuelidate
+Vue.use(Vuelidate)
+
 // Uso di date time
 Vue.use(Datetime)  
+
+// Uso di Bootstrap Vue
+Vue.use(BootstrapVue);
 
 
 // Setup axios 
