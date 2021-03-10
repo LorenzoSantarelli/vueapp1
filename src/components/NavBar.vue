@@ -12,14 +12,11 @@
         <li class="nav-item margin-left liWidth">
           <a class="nav-link active" aria-current="page" v-on:click="home()" style="float : left;"> Home </a>
         </li>
-        <li class="nav-item margin-left liWidth">
-          <a class="nav-link active" v-if="auth === true" v-on:click="create()" style="float : left"> Prenota </a>
-        </li>
-        <li class="nav-item dropdown" style="float: right">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-align: right">
+        <li class="nav-item dropdown" style="float: left; width: 115px">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 180px">
             <li>
           <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="black" width="18" height="18" viewBox="0 0 24 24" style="float : left; margin-top:16px">
                     <path
@@ -32,6 +29,9 @@
             <a class="dropdown-item" v-on:click="access()"> {{ accedi }} </a>
             </li>
           </ul>
+        </li>
+        <li class="nav-item margin-left liWidth">
+          <a class="nav-link active" v-if="auth === true" v-on:click="create()" style="float : left"> Prenota </a>
         </li>
       </ul>
     </div>
