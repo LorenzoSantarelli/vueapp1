@@ -79,7 +79,7 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <textarea class="form-control" rows="5" cols="50" placeholder="Options" v-model="newBooking.options"></textarea>
+                        <textarea class="form-control" style="width: 90%; margin: auto" rows="5" cols="50" placeholder="Options" v-model="newBooking.options"></textarea>
                     </div>
                 </div>
             </div>
