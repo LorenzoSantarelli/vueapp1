@@ -40,11 +40,7 @@
     </div>
         <!-- creazione del paginatore -->
         <nav class="pagination-text" aria-label="Page navigation example">
-            <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}
-                <div class="spinner-border text-primary" role="status" v-if="loading === true">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </span>
+            <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}</span>
 
             <!-- definizione degli elementi per mostrare la pagina corrente e di quelli per cambiare pagina -->
             <ul class="pagination justify-content-center">
