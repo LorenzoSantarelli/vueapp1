@@ -8,7 +8,7 @@
         </div>
 
         <!-- creazione della tabella per mostrare le prenotazioni -->
-        <div style="width: 45%; margin:auto;" class="table-responsive" v-if="loading === false">
+        <div style="width: 50%; margin:auto;" class="table-responsive" v-if="loading === false">
         <table class="table table-light">
             <thead>
                 <tr>
@@ -20,9 +20,9 @@
             </thead>
             <tbody>
                 <tr v-for="item in this.data.data" :key="item.bookingId">
-                    <td>
+                    <td><nobr>
                         {{item.bookingId}} 
-                    </td>
+                    </nobr></td>
                     <td>
                         {{item.code}}
                     </td>
