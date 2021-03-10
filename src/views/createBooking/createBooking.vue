@@ -4,14 +4,17 @@
             <tbody>
                 <tr>
                     <td style="width: 100%">
-                        <div style="margin-top: 22px; width: 50%; float: left">
+                        <div style="margin-top: 10px; width: 50%; float: left">
+                        <label>Insersci il numero di giocatori</label>
+                        <br>
                         <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
                             2 Giocatori
                         <br>
                         <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
                             4 Giocatori
                         </div>
-                        <div style="width: 30%; float: left">
+                        <div style="width: 30%; float: left; margin-top: 10px;">
+                        <label>Inserisci data e ora</label>
                         <datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
                         <hr>
                         <datetime type="datetime" placeholder="Fine" v-model="newBooking.end"></datetime>
@@ -21,7 +24,8 @@
                 <table class="table table-light" style="width:100%">
                 <tbody>
                 <tr>
-                    <textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea>
+                    <br>
+                    <textarea class="form-control" placeholder="Options" style="width: 90%; margin: auto" v-model="newBooking.options"></textarea>
                 </tr>
                 <tr >
                     <button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button>
