@@ -1,5 +1,5 @@
 <template>
-    <form id="login" autocomplete="off">
+    <form class="container" autocomplete="off">
         <h1>Login</h1>
 
         <!-- Visualizzazione degli alert con gli errori -->
