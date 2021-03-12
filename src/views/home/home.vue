@@ -8,7 +8,6 @@
             </div>
     </div>
 
-<<<<<<< HEAD
 <div class="row">
     <div class="col-sm-3">
       <nobr>Booking Id</nobr>
@@ -37,38 +36,6 @@
           {{item.code}}
         </div>
       </div>
-=======
-        <!-- creazione della tabella per mostrare le prenotazioni -->
-        <div style="margin:auto;" class="table-responsive" v-if="loading === false">
-        <table class="table table-light">
-            <thead>
-                <tr>
-                    <th scope="col"><nobr>Booking Id</nobr></th>
-                    <th scope="col"><nobr>Codice Prenotazione</nobr></th>
-                    <th scope="col"><nobr>Data</nobr></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in this.data.data" :key="item.bookingId">
-                    <td><nobr>
-                        {{item.bookingId}} 
-                    </nobr></td>
-                    <td>
-                        {{item.code}}
-                    </td>
-                    <td>
-                        {{item.bookingDate | formatDate}}
-                    </td>
-                    <td>
-                        <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
-                            <button class="btn btn-outline-primary btn-details">Dettagli</button>
-                        </router-link>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
->>>>>>> feebdcc48e4513d489dafef9b98a4e18762ae515
     </div>
   </div>
   <div class="row">
