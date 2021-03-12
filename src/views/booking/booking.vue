@@ -2,7 +2,7 @@
 <template>
     <div class="home">
         <!-- Visualizzazione spiner di caricamento al mount della pagina -->
-        <div class="container" v-if="loading === true">
+        <div class="container" style="text-align:center" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
