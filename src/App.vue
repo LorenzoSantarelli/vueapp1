@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .view{
-  margin-left: 20%;
-  width:75%;
+  margin-left: 25%;
+  width:70%;
 }
 </style>

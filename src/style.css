@@ -30,6 +30,9 @@ body {
     .sidebar {
       top: 5rem;
     }
+    .view {
+      margin: auto !important;
+    }
   }
   
   .sidebar-sticky {
@@ -99,3 +102,10 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
   
+  .nav-link:hover{
+    color: #007bff;
+  }
+
+  .nav-link:hover svg{
+    fill: #007bff;
+  }

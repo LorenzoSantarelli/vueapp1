@@ -2,7 +2,7 @@
 <template>
   <nav class="navbar fixed-bottom navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand navft" href="#">Fixed bottom</a>
+      <a class="text-dark navft disabled" href="#">_</a>
     </div>
   </nav>
 </template>
