@@ -6,24 +6,24 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <nobr>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
-                {{ user }}
-              </nobr>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="nav-link" aria-current="page" v-on:click="account()">
-              informazioni
-            </a>
-          <a class="nav-link" v-on:click="logout()">Logout</a>
-        </div>
-      </div>
-    </li>
-  </ul>
+      <button class="nav-item col-lg-2 flex-md-nowrap btn">
+      <li class="nav-item dropdown px-3">
+          <a class="dropdown-toggle col-md-3 col-lg-2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <nobr>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
+              {{ user }}
+            </nobr>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+            <a class="nav-link text-dark dropdown-elem" aria-current="page" v-on:click="account()">Informazioni</a>
+          </li>
+          <li>
+            <a class="nav-link text-dark dropdown-elem" v-on:click="logout()">Logout</a>
+          </li>
+          </ul>
+      </li>
+      </button>
 </header>
 </div>
 

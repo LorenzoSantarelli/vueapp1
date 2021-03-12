@@ -1,13 +1,7 @@
 <!-- definizione del template -->
 <template>
-<<<<<<< HEAD
     <div class="container-fluid">
         <div style="text-align:center;" v-if="loading === true">
-=======
-<div class="container" v-if="loading === false">
-
-    <div style="text-align:center;" v-if="loading === true">
->>>>>>> f882b8f66ff5d56afcc15ceb65d712ffaa07daa1
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
