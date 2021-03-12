@@ -1,10 +1,16 @@
 <!--definizione del template -->
 <template>
   <div id="app">
-    <div id="nav">
-      <NavBar :key="componentKey" />
-    </div>
-    <router-view />
+
+    <NavBar v-if="auth === false" :key="componentKey" />
+
+    <Menu v-if="auth === true" />
+
+    <router-view v-if="auth === false" />
+
+    <router-view v-if="auth === true" class="view" />
+
+
     <my-footer />
   </div>
 </template>
@@ -13,17 +19,20 @@
 //import dei componenti footer e NavBar 
 import NavBar from "./components/NavBar.vue";
 import MyFooter from "./components/MyFooter.vue";
+import Menu from "./components/Menu.vue";
 
 //definizione dei componenti footer e NavBar
 export default {
   name: "App",
   components: {
     NavBar,
+    Menu,
     "my-footer": MyFooter,
   },
   data() {
     return {
       componentKey: 0,
+      auth: false
     };
   },
   //metodo per refreshare il componente NavBar 
@@ -31,6 +40,17 @@ export default {
     forceRerender() {
       this.componentKey += 1;
     },
+    authenticated(){
+      if(localStorage.token){
+        this.auth = true;
+      }
+      else if(!localStorage.token){
+        this.auth = false;
+      }
+    },
+  },
+  mounted(){
+    this.authenticated();
   },
   //metodo per acquisire il riferimento della root nella quale si trova l'applicazione
   created() {
@@ -38,3 +58,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.view{
+  margin-left: 20%;
+  width:75%;
+}
+</style>

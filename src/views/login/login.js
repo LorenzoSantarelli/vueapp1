@@ -55,7 +55,7 @@ export default {
                 UserService.login(this.input.username, this.input.password)
                     .then(data => {
                         this.$set(this, "event", data);
-                        this.loading = false;
+                        this.$root.$refs.App.authenticated();
                         this.$router.replace({ name: "home" });
                     })
                     .catch(error => {
@@ -72,15 +72,12 @@ export default {
             var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         },
-        // Metodo di refresh della navbar
-        mounted(){
-            this.$root.$refs.App.forceRerender();
-        },
         // Metodo di reindirizzamento alla pagina di recupero password
         recover() {
             this.$router.replace({ name: "recover" });
         }
     },
+    // Metodo di refresh della navbar
     mounted(){
         this.$root.$refs.App.forceRerender();
   },
