@@ -1,12 +1,48 @@
 <!-- definizione del template -->
 <template>
+<<<<<<< HEAD
     <div class="container-fluid">
         <div style="text-align:center;" v-if="loading === true">
+=======
+<div class="container" v-if="loading === false">
+
+    <div style="text-align:center;" v-if="loading === true">
+>>>>>>> f882b8f66ff5d56afcc15ceb65d712ffaa07daa1
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-        </div>
+    </div>
 
+<<<<<<< HEAD
+<div class="row">
+    <div class="col-sm-3">
+      <nobr>Booking Id</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.bookingId}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.bookingId}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <nobr>Codice Prenotazione</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.code}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.code}}
+        </div>
+      </div>
+=======
         <!-- creazione della tabella per mostrare le prenotazioni -->
         <div style="margin:auto;" class="table-responsive" v-if="loading === false">
         <table class="table table-light">
@@ -37,9 +73,44 @@
                 </tr>
             </tbody>
         </table>
+>>>>>>> feebdcc48e4513d489dafef9b98a4e18762ae515
     </div>
-        <!-- creazione del paginatore -->
-        <nav class="pagination-text" aria-label="Page navigation example">
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <nobr>Data</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.bookingDate | formatDate}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.bookingDate | formatDate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
+                    </router-link>
+        </div>
+        <div class="col-6 col-sm-6">
+          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
+                    </router-link>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<nav class="pagination-text" aria-label="Page navigation example">
             <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}</span>
 
             <!-- definizione degli elementi per mostrare la pagina corrente e di quelli per cambiare pagina -->
@@ -70,7 +141,7 @@
                 </li>
             </ul>
         </nav>
-    </div>
+</div>
 </template>
 
 <script>
