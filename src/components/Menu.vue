@@ -69,7 +69,10 @@ export default {
       this.$router.replace({ name: "home"});
     },
     account(){
-      this.$router.replace({ name: "account"})
+      this.$router.replace({ name: "account"});
+    },
+    crea(){
+      this.$router.replace({ name: "newBooking"});
     }
   },
   mounted(){

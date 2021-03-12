@@ -2,12 +2,8 @@
 import Vue from 'vue';       
 import App from './App.vue';  
 import router from './router'; 
-<<<<<<< HEAD
-import axios from 'axios';        
-=======
-import axios from 'axios';   
+import axios from 'axios';         
 import './style.css'    
->>>>>>> feebdcc48e4513d489dafef9b98a4e18762ae515
 import moment from 'moment';    
 import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
