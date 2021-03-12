@@ -1,43 +1,30 @@
 <template>
-    <div style="width: 50%; height: 500px ;margin:auto; margin-top: 100px" class="table-responsive">
-        <table class="table table-light">
-            <tbody>
-                <tr>
-                    <td style="width: 100%">
-                        <div style="margin-top: 10px; width: 50%; float: left">
-                        <label>Insersci il numero di giocatori</label>
-                        <br>
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
-                            2 Giocatori
-                        <br>
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
-                            4 Giocatori
-                        </div>
-                        <div style="width: 30%; float: left; margin-top: 10px;">
-                        <label>Inserisci data e ora</label>
-                        <datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
-                        <hr>
-                        <datetime type="datetime" placeholder="Fine" v-model="newBooking.end"></datetime>
-                        </div>
-                    </td>
-                </tr>
-                <table class="table table-light" style="width:100%">
-                <tbody>
-                <tr>
-                    <br>
-                    <textarea class="form-control" placeholder="Options" style="width: 90%; margin: auto" v-model="newBooking.options"></textarea>
-                </tr>
-                <tr >
-                    <button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button>
-                <br>
-                <br>
-                </tr>
-                </tbody>
-                </table>
-            </tbody>
-        </table>
-    </div>
 
+<div class="container">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+  <div class="row">
+    <div class="col-6 col-md-4"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
+            2 Giocatori
+        <br>
+        <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
+            4 Giocatori</div>
+    <div class="col-6 col-md-4">
+        <datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
+        <datetime type="datetime" placeholder="Fine" style="margin-top: 5px" v-model="newBooking.end"></datetime></div>
+  </div>
+
+<div class="row">
+    <div class="col-md-8">
+        <textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-8"><button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button>
+  </div>
+  </div>
+</div>
 
 
     <!-- <div class="container">

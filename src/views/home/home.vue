@@ -1,45 +1,78 @@
 <!-- definizione del template -->
 <template>
-    <div class="home">
-        <div style="text-align:center;" v-if="loading === true">
+<div class="container" v-if="loading === false">
+
+    <div style="text-align:center;" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-        </div>
-
-        <!-- creazione della tabella per mostrare le prenotazioni -->
-        <div style="width: 50%; margin:auto;" class="table-responsive" v-if="loading === false">
-        <table class="table table-light">
-            <thead>
-                <tr>
-                    <th scope="col"><nobr>Booking Id</nobr></th>
-                    <th scope="col"><nobr>Codice Prenotazione</nobr></th>
-                    <th scope="col"><nobr>Data</nobr></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in this.data.data" :key="item.bookingId">
-                    <td><nobr>
-                        {{item.bookingId}} 
-                    </nobr></td>
-                    <td>
-                        {{item.code}}
-                    </td>
-                    <td>
-                        {{item.bookingDate | formatDate}}
-                    </td>
-                    <td>
-                        <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
-                            <button class="btn btn-outline-primary btn-details">Dettagli</button>
-                        </router-link>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-        <!-- creazione del paginatore -->
-        <nav class="pagination-text" aria-label="Page navigation example">
+
+<div class="row">
+    <div class="col-sm-3">
+      <nobr>Booking Id</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.bookingId}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.bookingId}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <nobr>Codice Prenotazione</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.code}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.code}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <nobr>Data</nobr>
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          {{item.bookingDate | formatDate}}
+        </div>
+        <div class="col-6 col-sm-6">
+          {{item.bookingDate | formatDate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
+      <div class="row">
+        <div class="col-6 col-sm-6">
+          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
+                    </router-link>
+        </div>
+        <div class="col-6 col-sm-6">
+          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
+                    </router-link>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<nav class="pagination-text" aria-label="Page navigation example">
             <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}</span>
 
             <!-- definizione degli elementi per mostrare la pagina corrente e di quelli per cambiare pagina -->
@@ -70,7 +103,7 @@
                 </li>
             </ul>
         </nav>
-    </div>
+</div>
 </template>
 
 <script>
