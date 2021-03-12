@@ -1,29 +1,20 @@
 <template>
 
 <div class="container">
-  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-  <div class="row">
-    <div class="col-6 col-md-4"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
             2 Giocatori
-        <br>
-        <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
-            4 Giocatori</div>
-    <div class="col-6 col-md-4">
-        <datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
-        <datetime type="datetime" placeholder="Fine" style="margin-top: 5px" v-model="newBooking.end"></datetime></div>
-  </div>
-
-<div class="row">
-    <div class="col-md-8">
-        <textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea>
     </div>
-  </div>
-
-<div class="row">
-    <div class="col-md-8"><button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button>
-  </div>
-  </div>
+    <div class="col"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
+            4 Giocatori
+    </div>
+    <div class="col"><datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
+    </div>
+    <div class="col"><datetime type="datetime" placeholder="Fine" v-model="newBooking.end"></datetime>
+    </div>
+</div>
+<div class="row"><div style="margin-top: 15px; width: 70%; margin: auto;"><textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea></div></div>
+<div class="row"><div><button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button></div></div>
 </div>
 
 

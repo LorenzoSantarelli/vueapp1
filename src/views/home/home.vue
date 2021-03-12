@@ -1,13 +1,38 @@
 <!-- definizione del template -->
 <template>
-    <div class="container-fluid">
-        <div style="text-align:center;" v-if="loading === true">
+<div class="container" v-if="loading === false">
+
+    <div style="text-align:center;" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
     </div>
 
-<div class="row">
+<div class="table-responsive">
+  <table class="table table-md">
+    <thead>
+      <tr>
+        <th><nobr>Booking Id</nobr></th>
+        <th><nobr>Codice Prenotazione</nobr></th>
+        <th class=""><nobr>Data</nobr></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody v-for="item in this.data.data" :key="item.bookingId">
+      <tr>
+        <td>{{item.bookingId}}</td>
+        <td>{{item.code}}</td>
+        <td>{{item.bookingDate | formatDate}}</td>
+        <td><router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
+                    </router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div class="row">
     <div class="col-sm-3">
       <nobr>Booking Id</nobr>
     </div>
@@ -69,7 +94,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <nav class="pagination-text" aria-label="Page navigation example">
             <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}</span>
