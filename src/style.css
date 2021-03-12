@@ -109,3 +109,30 @@ body {
   .nav-link:hover svg{
     fill: #007bff;
   }
+
+  .dropdown-toggle{
+    color: white;
+    fill:white
+  }
+
+  .dropdown-toggle:hover{
+    color: white;
+    text-decoration: none;
+  }
+
+  .dropdown-elem:hover{
+    background-color: rgb(238, 238, 238);
+  }
+
+  .btn:hover{
+    background-color: rgb(34, 34, 34);
+  }
+
+  .btn:focus{
+    outline: none !important;
+  }
+
+  li{
+    list-style-type: none;
+  }
+  
