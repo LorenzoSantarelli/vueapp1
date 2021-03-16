@@ -1,12 +1,17 @@
 <!-- definizione del template -->
 <template>
-<div class="container" v-if="loading === false">
-
+<div v-if="loading === false">
+<h1>Elenco prenotazioni</h1> 
     <div style="text-align:center;" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
     </div>
+<div class="row">
+<a class="nav-link text-right" v-on:click="crea()">
+  <button class="btn btn-outline-primary btn-details">Crea prenotazione</button>
+</a>
+</div>
 
 <div class="table-responsive">
   <table class="table table-md">
@@ -14,7 +19,7 @@
       <tr>
         <th><nobr>Booking Id</nobr></th>
         <th><nobr>Codice Prenotazione</nobr></th>
-        <th class=""><nobr>Data</nobr></th>
+        <th><nobr>Data</nobr></th>
         <th></th>
       </tr>
     </thead>

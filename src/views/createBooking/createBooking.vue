@@ -1,20 +1,23 @@
 <template>
 
-<div class="container">
+<div>
+<h1>Crea una prenotazione</h1>
+<br>
+<br>   
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-    <div class="col"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
+    <div class="col text-center"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="2">
             2 Giocatori
     </div>
-    <div class="col"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
+    <div class="col text-center"><input class="form-check-input" type="radio" name="flexRadioDefault" v-model="newBooking.players" v-bind:value="4">
             4 Giocatori
     </div>
-    <div class="col"><datetime type="datetime" placeholder="Inizio" v-model="newBooking.start"></datetime>
+    <div class="col"><datetime type="datetime" placeholder="Inizio" style="width: 145px;margin: auto" v-model="newBooking.start"></datetime>
     </div>
-    <div class="col"><datetime type="datetime" placeholder="Fine" v-model="newBooking.end"></datetime>
+    <div class="col"><datetime type="datetime" placeholder="Fine" style="width: 145px;margin: auto" v-model="newBooking.end"></datetime>
     </div>
 </div>
-<div class="row"><div style="margin-top: 15px; width: 70%; margin: auto;"><textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea></div></div>
-<div class="row"><div><button class="btn btn-outline-primary btn-details" style="margin-top: 15px; width: 45%" v-on:click="createBooking()">Vai</button></div></div>
+<div class="row" style="margin-top: 15px; margin: auto;"><div><textarea class="form-control" placeholder="Options" v-model="newBooking.options"></textarea></div></div>
+<div class="row text-center" style="margin-top: 15px"><div><button class="btn btn-outline-primary btn-details" style="width: 45%" v-on:click="createBooking()">Vai</button></div></div>
 </div>
 
 

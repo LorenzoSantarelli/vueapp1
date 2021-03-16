@@ -53,6 +53,10 @@ export default {
                 this.errors.push (error.response.data.message);
             })
         },
+        crea(){
+            this.$router.replace({ name: "newBooking"});
+          }
+        },
         //metodo per tornare alla pagina precedente
         previous(){
             if(this.currentPage != 1){
@@ -90,5 +94,4 @@ export default {
         details(){
             this.$router.replace({name: 'booking'});
         }
-    }
 }
