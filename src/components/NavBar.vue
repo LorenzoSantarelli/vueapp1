@@ -47,10 +47,10 @@ export default {
     },
     // Metodo di aggiornamento della variabile stato 
     reLoad() {
-      if(this.$route.currentRoute.name == "login"){
+      if(this.$route.name == "login"){
         this.stato = "Registrati";
       }
-      else if(this.$route.currentRoute.name == "register"){
+      else if(this.$route.name == "register"){
         this.stato = "Accedi";
       }
     }
@@ -59,6 +59,9 @@ export default {
   mounted() {
     this.reLoad();
   },
+  created() {
+    this.$root.$refs.Nav = this;
+  }
 };
 </script>
 <style scoped>

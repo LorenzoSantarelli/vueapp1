@@ -46,6 +46,7 @@ export default {
   },
   mounted(){
     this.$root.$refs.App.forceRerender();
+    this.$root.$refs.Nav.reLoad();
   },
   methods: {
     signUp(){
