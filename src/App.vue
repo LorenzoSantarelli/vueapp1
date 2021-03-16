@@ -6,10 +6,11 @@
 
     <Menu v-if="auth === true" />
 
+    <Breadcrumb v-if="auth === true" class="breadcrumb" :key="componentKey" />
+
     <router-view v-if="auth === false" />
 
     <router-view v-if="auth === true" class="view" />
-
 
     <my-footer />
   </div>
@@ -20,6 +21,7 @@
 import NavBar from "./components/NavBar.vue";
 import MyFooter from "./components/MyFooter.vue";
 import Menu from "./components/Menu.vue";
+import Breadcrumb from "./components/Breadcrumb.vue";
 
 //definizione dei componenti footer e NavBar
 export default {
@@ -28,6 +30,7 @@ export default {
     NavBar,
     Menu,
     "my-footer": MyFooter,
+    Breadcrumb
   },
   data() {
     return {
@@ -58,10 +61,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.view{
-  margin-left: 25%;
-  width:70%;
-}
-</style>

@@ -1,19 +1,14 @@
 <!-- definizione del template -->
 <template>
-<div class="container" v-if="loading === false">
+<div class="home">
 
-    <div style="text-align:center;" v-if="loading === true">
+<div class="container" style="text-align:center;" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
     </div>
 
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Library</li>
-  </ol>
-  </nav>
+<div class="container" v-if="loading === false">
 
 <div class="table-responsive">
   <table class="table table-md">
@@ -134,6 +129,7 @@
                 </li>
             </ul>
         </nav>
+</div>
 </div>
 </template>
 

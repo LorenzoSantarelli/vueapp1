@@ -7,11 +7,20 @@ import './style.css'
 import moment from 'moment';    
 import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
-
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
+import { BBreadcrumb } from 'bootstrap-vue'
+Vue.component('b-breadcrumb', BBreadcrumb)
+// import VueBreadcrumbs from 'vue-breadcrumbs';
+
+// Vue.use(VueBreadcrumbs, {
+//   template: 
+//     '<nav class="breadcrumb" v-if="$breadcrumbs.length"> ' +
+//     '<router-link class="breadcrumb-item" v-for="(crumb, key) in $breadcrumbs" :to="linkProp(crumb)" :key="key">{{ crumb | crumbText }}</router-link> ' +
+//     '</nav>'
+// });
 
 // Uso di vuelidate
 Vue.use(Vuelidate)

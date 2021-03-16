@@ -28,7 +28,7 @@
 </div>
 
   <div class="container-fluid">
-  <div class="row" style="position: relative;top:5%;bottom:0;">
+  <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="position:fixed; left:0; right:25%">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">

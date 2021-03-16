@@ -9,6 +9,7 @@ import Booking from "../views/booking/booking.vue"
 import NewBooking from "../views/createBooking/createBooking.vue"
 Vue.use(VueRouter)
 
+
 //vengono definiti i percorsi delle pagine dell'applicazione per effettuare il reindirizzamento
 
 const routes = [
