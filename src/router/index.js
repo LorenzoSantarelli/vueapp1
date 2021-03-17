@@ -7,6 +7,7 @@ import Home from "../views/home/home.vue"
 import Account from "../views/account/account.vue"
 import Booking from "../views/booking/booking.vue"
 import NewBooking from "../views/createBooking/createBooking.vue"
+import bookingList from "../views/bookingList/bookingList.vue"
 Vue.use(VueRouter)
 
 //vengono definiti i percorsi delle pagine dell'applicazione per effettuare il reindirizzamento
@@ -40,7 +41,16 @@ const routes = [
             requiresAuth: true
         }
     },
-    //pagina contenente l'elenco delle prenotazioni
+    //elenco delle prenotazioni
+    {
+        path: "/bookingList",
+        name: "bookingList",
+        component: bookingList,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    //pagina contenente il dettaglio della prenotazione
     {
         path: "/booking/:id",
         name: "booking",

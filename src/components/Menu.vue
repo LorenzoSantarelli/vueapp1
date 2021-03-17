@@ -33,16 +33,18 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" v-on:click="home()">
+            <b-link class="nav-link" :to="{path:'/home'}">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg>
-              Dashboard
-            </a>
+              Home
+            </b-link>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" v-on:click="crea()">
+             
+               <b-link class="nav-link" :to="{path:'/bookingList'}">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
               Prenotazioni
-            </a>
+               </b-link>
+            
           </li>
         </ul>
       </div>
@@ -70,13 +72,7 @@ export default {
       this.$root.$refs.App.authenticated();
       this.$router.replace({ name: "login" });
     },
-    home(){
-      this.$router.replace({ name: "home"});
     },
-    account(){
-      this.$router.replace({ name: "account"});
-    },
-  },
   mounted(){
     this.name = JSON.parse(localStorage.user);
     this.user = this.name.fullname;
