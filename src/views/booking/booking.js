@@ -48,6 +48,7 @@ export default {
     mounted() {
         this.loading = true;
         this.getBooking();
+        this.$root.$refs.Breadcrumb.slice();
     },
     // Assegnazione della variabile id all'id nel path dell'url del file router/index.js
     created(){

@@ -39,32 +39,19 @@ const routes = [
         name: "home",
         component: Home,
         meta: {
-            requiresAuth: true
-        }
-    },
-    //elenco delle prenotazioni
-    {
-        path: "/bookingList",
-        name: "bookingList",
-        component: bookingList,
-        meta: {
-            requiresAuth: true
-        }
-    },
-    //pagina contenente il dettaglio della prenotazione
-    {
-        path: "/booking/:id",
-        name: "booking",
-        component: Booking,
-        meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            name: 'Home'
         }
     },
     //pagina per creare una nuova prenotazione
     {
         path: '/booking',
         name: "bookingList",
-        component: Home,
+        component: bookingList,
+        meta: {
+            requiresAuth: true,
+            name: 'Prenotazioni'
+        },
         children:[
             //pagina per creare una nuova prenotazione
             {
@@ -72,7 +59,8 @@ const routes = [
                 name: "newBooking",
                 component: NewBooking,
                 meta: {
-                    requiresAuth: true
+                    requiresAuth: true,
+                    name: 'Nuova Prenotazione'
                 },
             },
             //pagina contenente l'elenco delle prenotazioni
@@ -81,11 +69,10 @@ const routes = [
                 name: "booking",
                 component: Booking,
                 meta: {
-                    requiresAuth: true
+                    requiresAuth: true,
+                    name: 'Dettaglio Prenotazione'
                 }
-            },
-    
-            
+            }
         ]
     },
     //pagina di gestione dell'account utente

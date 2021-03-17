@@ -19,7 +19,7 @@ export default {
     //viene richiamato il metodo forceRender() che permette alla NavBar di refresharsi
     mounted(){
         this.$root.$refs.App.forceRerender();
-
+        this.$root.$refs.Breadcrumb.slice();
     },
     //viene richiamato il metodo getBooking che permette di selezionare una prenotazione
     created(){

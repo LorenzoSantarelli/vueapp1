@@ -48,7 +48,6 @@
 <div class="row text-center" style="margin-top: 15px"><div><button class="btn btn-outline-primary btn-details" style="width: 45%" v-on:click="createBooking()">Vai</button></div></div> -->
 
 
-</div>
 </template>
 
 <script>

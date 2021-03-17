@@ -2,6 +2,10 @@
 <template>
 
 <div>
+
+<router-view v-if="$route.name !== 'bookingList'" />
+
+<div v-if="$route.name === 'bookingList'" >
 <h1>Elenco prenotazioni</h1> 
 <br>
 <br>
@@ -12,7 +16,7 @@
     </div>
 
 <div class="row text-right" style="margin-bottom: 10px">
-  <b-link :to="{path:'/new-booking'}">
+  <b-link :to="{path:'/booking/new'}">
   <button class="btn btn-outline-primary btn-details">Crea prenotazione</button>
   </b-link>
 </div>
@@ -77,6 +81,7 @@
                 </li>
             </ul>
         </nav>
+</div>
 </div>
 </template>
 

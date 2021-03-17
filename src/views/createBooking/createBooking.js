@@ -48,5 +48,8 @@ export default{
                 // })
             }
         }
+    },
+    mounted(){
+        this.$root.$refs.Breadcrumb.slice();
     }
 }
