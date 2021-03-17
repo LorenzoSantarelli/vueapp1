@@ -1,6 +1,6 @@
 <!--definizione del template -->
 <template>
-  <div id="app">
+  <div>
 
     <NavBar v-if="auth === false" :key="componentKey" />
 

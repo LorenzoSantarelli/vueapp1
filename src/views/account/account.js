@@ -16,10 +16,6 @@ export default{
         }
     },
     methods: {
-        // Metodo di reindirizzamento alla home
-        indietro(){
-            this.$router.replace({ name: "home" });
-        },
         // Metodo di visualizzazione delle informazioni dell'utente
         name(){
             const name = JSON.parse(localStorage.user);

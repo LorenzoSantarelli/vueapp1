@@ -85,10 +85,6 @@ export default {
         change(pages){
             this.currentPage = pages;
             this.getBooking();
-        },
-        //metodo per aprire il dettaglio di una prenotazione
-        details(){
-            this.$router.replace({name: 'booking'});
         }
     }
 }

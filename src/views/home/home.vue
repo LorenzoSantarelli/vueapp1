@@ -1,6 +1,6 @@
 <!-- definizione del template -->
 <template>
-<div class="home">
+<div>
 
 <div class="container" style="text-align:center;" v-if="loading === true">
             <div class="spinner-border text-primary m-5" style="width: 3.2rem; height: 3.2rem;" role="status">
@@ -25,78 +25,17 @@
         <td>{{item.bookingId}}</td>
         <td>{{item.code}}</td>
         <td>{{item.bookingDate | formatDate}}</td>
-        <td><router-link :to="{name: 'booking', params: {id: item.bookingId} }">
-                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
-                    </router-link>
+        <td>
+          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
+            <button class="btn btn-outline-primary btn-details">Dettagli</button>
+          </router-link>
         </td>
       </tr>
     </tbody>
   </table>
+  
+  <router-view />
 </div>
-
-<!-- <div class="row">
-    <div class="col-sm-3">
-      <nobr>Booking Id</nobr>
-    </div>
-    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
-      <div class="row">
-        <div class="col-6 col-sm-6">
-          {{item.bookingId}}
-        </div>
-        <div class="col-6 col-sm-6">
-          {{item.bookingId}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <nobr>Codice Prenotazione</nobr>
-    </div>
-    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
-      <div class="row">
-        <div class="col-6 col-sm-6">
-          {{item.code}}
-        </div>
-        <div class="col-6 col-sm-6">
-          {{item.code}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <nobr>Data</nobr>
-    </div>
-    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
-      <div class="row">
-        <div class="col-6 col-sm-6">
-          {{item.bookingDate | formatDate}}
-        </div>
-        <div class="col-6 col-sm-6">
-          {{item.bookingDate | formatDate}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-9" v-for="item in this.data.data" :key="item.bookingId">
-      <div class="row">
-        <div class="col-6 col-sm-6">
-          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
-                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
-                    </router-link>
-        </div>
-        <div class="col-6 col-sm-6">
-          <router-link :to="{name: 'booking', params: {id: item.bookingId} }">
-                    <button class="btn btn-outline-primary btn-details">Dettagli</button>
-                    </router-link>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
 <nav class="pagination-text" aria-label="Page navigation example">
             <span class="text-primary" style="font-weight:700;">Pagina {{currentPage}}</span>
