@@ -7,6 +7,7 @@ import Home from "../views/home/home.vue"
 import Account from "../views/account/account.vue"
 import Booking from "../views/booking/booking.vue"
 import NewBooking from "../views/createBooking/createBooking.vue"
+import bookingList from "../views/bookingList/bookingList.vue"
 Vue.use(VueRouter)
 
 
@@ -41,6 +42,25 @@ const routes = [
             requiresAuth: true
         }
     },
+    //elenco delle prenotazioni
+    {
+        path: "/bookingList",
+        name: "bookingList",
+        component: bookingList,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    //pagina contenente il dettaglio della prenotazione
+    {
+        path: "/booking/:id",
+        name: "booking",
+        component: Booking,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    //pagina per creare una nuova prenotazione
     {
         path: '/booking',
         name: "bookingList",
