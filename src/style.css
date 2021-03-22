@@ -174,3 +174,14 @@ body {
     width: 70%;
   }
   
+
+  @media(min-width: 1367px){
+    .dim1{
+      width: 74px !important;
+      padding: 7px !important;
+    }
+    .dim{
+      width: 74px !important;
+      padding: 11px !important;
+    }
+  }

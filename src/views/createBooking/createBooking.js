@@ -1,13 +1,16 @@
 //import BookingService from '../../Services/BookingService.js';
-import Vue from 'vue'
-import { Datetime } from 'vue-datetime';
- 
-Vue.extend({
-  template: '...',
-  components: {
+import Vue from 'vue';
+import{Datetime} from 'vue-datetime'
+
+Vue.extend({template: `<div class="mb-3">
+<label for="exampleFormControlTextarea1" class="form-label">Inserisci data e ora</label>
+<div class="input-group flex-nowrap">
+    <span class="input-group-text" style="height:38px" id="addon-wrapping">Inizio</span>
+</div>
+</div>`, 
+components: {
     datetime: Datetime
-  }
-});
+}});
 
 export default{
     name: 'createBooking',

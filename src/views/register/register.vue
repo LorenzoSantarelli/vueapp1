@@ -43,7 +43,10 @@
 </template>-->
 
 <template>
-  <div class="container">
+  <form style="width: 75%; margin: auto; margin-bottom: 110px;">
+    <h1>Registrazione</h1>
+    <br>
+    <br>
     <b-form @submit.stop.prevent="onSubmit" id="register" autocomplete="off">
     <h2>Registrazione Utente</h2>
       <b-form-group id="example-input-group-1" label="Nome" label-for="example-input-1">
@@ -127,7 +130,7 @@
             </div>
       </b-button>
     </b-form>
-  </div>
+  </form>
 </template>
 
 <script>
