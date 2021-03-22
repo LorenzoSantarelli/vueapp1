@@ -25,13 +25,24 @@ body {
     padding: 48px 0 0; /* Height of navbar */
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   }
-  
-  @media (max-width: 767.98px) {
-    .sidebar {
-      top: 5rem;
+
+  @media (max-width: 991px) {
+    .view {
+      margin-left: 30% !important;
+      width: 65% !important;
     }
+  }
+
+  @media (max-width: 767.98px) {
     .view {
       margin: auto !important;
+      width: 70% !important;
+    }
+    .topBtn{
+      display: none !important;
+    }
+    .userName{
+      display: block !important;
     }
   }
   
@@ -83,6 +94,11 @@ body {
   .navbar .navbar-toggler {
     top: .25rem;
     right: 1rem;
+    border: none;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
   
   .navbar .form-control {
@@ -115,9 +131,22 @@ body {
     fill:white
   }
 
+  .dropdown-toggle:focus {
+    outline: none;
+  }
+
   .dropdown-toggle:hover{
     color: white;
     text-decoration: none;
+  }
+
+  .d-lg-none .dropdown-toggle:hover{
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .d-lg-none .dropdown-toggle[aria-expanded="true"]{
+    color: #007bff !important;
   }
 
   .dropdown-elem:hover{

@@ -8,7 +8,8 @@ import Account from "../views/account/account.vue"
 import Booking from "../views/booking/booking.vue"
 import NewBooking from "../views/createBooking/createBooking.vue"
 import bookingList from "../views/bookingList/bookingList.vue"
-Vue.use(VueRouter)
+
+Vue.use(VueRouter);
 
 
 //vengono definiti i percorsi delle pagine dell'applicazione per effettuare il reindirizzamento
@@ -40,9 +41,11 @@ const routes = [
         component: Home,
         meta: {
             requiresAuth: true,
-            name: 'Home'
+            breadcrumb: 'Home'
         }
     },
+    
+    
     //pagina per creare una nuova prenotazione
     {
         path: '/booking',
@@ -50,7 +53,7 @@ const routes = [
         component: bookingList,
         meta: {
             requiresAuth: true,
-            name: 'Prenotazioni'
+            breadcrumb: 'Prenotazioni'
         },
         children:[
             //pagina per creare una nuova prenotazione
@@ -60,7 +63,7 @@ const routes = [
                 component: NewBooking,
                 meta: {
                     requiresAuth: true,
-                    name: 'Nuova Prenotazione'
+                    breadcrumb: 'Nuova Prenotazione'
                 },
             },
             //pagina contenente l'elenco delle prenotazioni
@@ -70,7 +73,7 @@ const routes = [
                 component: Booking,
                 meta: {
                     requiresAuth: true,
-                    name: 'Dettaglio Prenotazione'
+                    breadcrumb: 'Dettaglio Prenotazione'
                 }
             }
         ]
@@ -81,7 +84,8 @@ const routes = [
         name: 'account',
         component: Account,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            breadcrumb: "Gestione dell' account"
         }
     }
 ]

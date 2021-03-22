@@ -16,7 +16,6 @@
     "moment": "^2.29.1",
     "vue": "^2.6.12",
     "vue-2-breadcrumbs": "^0.7.12",
-    "vue-breadcrumbs": "^1.2.0",
     "vue-datetime": "^1.0.0-beta.14",
     "vue-router": "^3.5.1",
     "vuelidate": "^0.7.6",

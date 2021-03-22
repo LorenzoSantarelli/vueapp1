@@ -1,4 +1,13 @@
 //import BookingService from '../../Services/BookingService.js';
+import Vue from 'vue'
+import { Datetime } from 'vue-datetime';
+ 
+Vue.extend({
+  template: '...',
+  components: {
+    datetime: Datetime
+  }
+});
 
 export default{
     name: 'createBooking',
@@ -27,7 +36,7 @@ export default{
                 this.errors.push("Devi inserire un'orario di inizio e uno di fine");
             }
 
-            // if(this.newBooking.start == this.booking.end){
+            // if(this.newBooking.start.getTime() <= this.booking.end.getTime()){
             //     this.errors.push("L'orario inserito non è valido");
             // }
 

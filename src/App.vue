@@ -6,7 +6,7 @@
 
     <Menu v-if="auth === true" />
 
-    <Breadcrumb v-if="auth === true" class="breadcrumb" :key="componentKey" />
+    <Breadcrumbs v-if="auth === true" class="view" />
 
     <router-view v-if="auth === false" />
 
@@ -21,7 +21,9 @@
 import NavBar from "./components/NavBar.vue";
 import MyFooter from "./components/MyFooter.vue";
 import Menu from "./components/Menu.vue";
-import Breadcrumb from "./components/Breadcrumb.vue";
+import Vue from 'vue';
+import VueBreadcrumbs from 'vue-2-breadcrumbs';
+Vue.use(VueBreadcrumbs);
 
 //definizione dei componenti footer e NavBar
 export default {
@@ -29,8 +31,7 @@ export default {
   components: {
     NavBar,
     Menu,
-    "my-footer": MyFooter,
-    Breadcrumb
+    "my-footer": MyFooter
   },
   data() {
     return {
