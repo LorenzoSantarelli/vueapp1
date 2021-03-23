@@ -48,7 +48,6 @@
     <br>
     <br>
     <b-form @submit.stop.prevent="onSubmit" id="register" autocomplete="off">
-    <h2>Registrazione Utente</h2>
       <b-form-group id="example-input-group-1" label="Nome" label-for="example-input-1">
         <b-form-input
           id="example-input-1"
