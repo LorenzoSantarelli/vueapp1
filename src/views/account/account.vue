@@ -9,7 +9,7 @@
   <br>
 
 <div class="row text-right" style="margin-bottom: 10px">
-  <b-link :to="{path:'/booking/new'}">
+  <b-link :to="{path:'/gestione-account/modifica'}">
   <button class="btn btn-outline-primary btn-details">Modifica account</button>
   </b-link>
 </div>
