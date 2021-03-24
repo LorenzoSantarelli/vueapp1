@@ -34,9 +34,9 @@ export default {
     // Modifica del nome, del cognome e del numero di telefono
     async edit(firstName, lastName, phone) {
         var obj = {
-            firstName = firstName,
-            lastName = lastName,
-            phone = phone
+            firstName: firstName,
+            lastName: lastName,
+            phone: phone
         };
         let res = await axios.patch("https://paddle.kube.cobaltica.net/api/Users/updateuser", obj);
         return res.data;
