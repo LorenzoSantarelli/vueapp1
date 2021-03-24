@@ -90,8 +90,9 @@ const routes = [
         },
         children: [
             {
-                path: "/modifica",
+                path: "modifica",
                 name: 'modifica',
+                component: Modifica,
                 meta: {
                     requiresAuth: true,
                     breadcrumb: "Modifica informazioni"
