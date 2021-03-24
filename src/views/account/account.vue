@@ -1,6 +1,9 @@
 <!-- Creazione template della pagina con i dati dell'utente -->
 <template>
     <div>
+<router-view v-if="$route.name !== 'account'" />
+
+<div v-if="$route.name === 'account'" >
   <h1>Gestione account di {{username}}</h1>
   <br>
   <br>
@@ -27,6 +30,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-">
   <div class="col-md-1"><li>{{title[3]}}: </li></div>
   <div class="col"><li> {{user[3]}}</li></div>
+</div>
 </div>
 </div>
 </template>
