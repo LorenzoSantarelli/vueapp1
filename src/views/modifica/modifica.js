@@ -14,11 +14,11 @@ export default{
     methods: {
         updateUser(){
             
-            
 
 
 
-            UserService.edit(nome, cognome, telefono)
+
+            UserService.edit(this.nome, this.cognome, this.telefono)
                 .then(data => {
                     this.$set(this, "event", data);
 

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { endsWith } from 'core-js/core/string';
 //definizione della login
 export default {
     async login(email, password) {
