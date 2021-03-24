@@ -16,7 +16,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-            <a class="nav-link text-dark dropdown-elem" aria-current="page" v-on:click="account()">Informazioni</a>
+            <b-link class="nav-link text-dark dropdown-elem" aria-current="page" :to="{name:'account'}">Informazioni</b-link>
           </li>
           <li>
             <a class="nav-link text-danger dropdown-elem" v-on:click="logout()">Logout</a>
