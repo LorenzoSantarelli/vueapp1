@@ -1,6 +1,6 @@
 <!-- Creazione template della pagina con i dati dell'utente -->
 <template>
-    <div class="container">
+    <div>
   <h1>Gestione account di {{username}}</h1>
   <hr>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-">

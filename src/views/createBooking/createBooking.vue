@@ -35,7 +35,7 @@
     <label for="exampleFormControlTextarea1" class="form-label">Inserisci una nota</label>
     <textarea class="form-control" style="" v-model="newBooking.options"></textarea>
   </div>
-  <button class="btn btn-outline-primary btn-details" style="width: 15%" v-on:click="createBooking()">Vai</button>
+  <button class="btn btn-outline-primary btn-details" type="button" style="width: 15%" v-on:click="create()">Vai</button>
 </form>
 
 

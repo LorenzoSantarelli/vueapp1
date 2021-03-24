@@ -1,4 +1,4 @@
-//import BookingService from '../../Services/BookingService.js';
+// import BookingService from '../../Services/BookingService.js';
 import Vue from 'vue';
 import{Datetime} from 'vue-datetime'
 
@@ -27,41 +27,42 @@ export default{
         }
     },
     methods: {
-        createBooking(){
+        create(){
 
             this.errors = [];
 
-            if(!this.newBooking.players){
-                this.errors.push("Devi inserire il numero di giocatori");
-            }
-
-            if(!this.newBooking.start || !this.newBooking.end){
-                this.errors.push("Devi inserire un'orario di inizio e uno di fine");
-            }
-
-            // if(this.newBooking.start.getTime() <= this.booking.end.getTime()){
-            //     this.errors.push("L'orario inserito non è valido");
-            // }
-
-            if(!this.newBooking.options){
-                this.errors.push("Il campo opzioni è vuoto");
-            }
+            
             if(this.errors.length == 0){
                 
                 console.log(this.newBooking);
-                // BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end, this.newBooking.options, this.newBooking.courtId)
-                // .then(data => {
-                // this.$set(this, "event", data);
-                // console.log(this.newBooking);
-                // })
-                // .catch(error => {
-                // console.log(error);
-                // this.errors.push(error.response.data.message);
-                // })
+                BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end, this.newBooking.options, this.newBooking.courtId)
+                .then(data => {
+                this.$set(this, "event", data);
+                console.log(this.newBooking);
+                })
+                .catch(error => {
+                this.errors.push(error.response.data.message);
+                console.log(this.errors);
+                })
+            }
+            else{
+                if(!this.newBooking.players){
+                    this.errors.push("Devi inserire il numero di giocatori");
+                }
+    
+                if(!this.newBooking.start || !this.newBooking.end){
+                    this.errors.push("Devi inserire un'orario di inizio e uno di fine");
+                }
+    
+                if(this.newBooking.start >= this.newBooking.end){
+                    this.errors.push("L'orario inserito non è valido");
+                }
+    
+                if(!this.newBooking.options){
+                    this.errors.push("Il campo opzioni è vuoto");
+                }
+                console.log(this.errors);
             }
         }
-    },
-    mounted(){
-        this.$root.$refs.Breadcrumb.slice();
     }
 }

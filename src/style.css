@@ -45,6 +45,16 @@ body {
       display: block !important;
     }
   }
+
+  .topBtn{
+    border-radius: 0 !important;
+    background-color: #272B30 !important;
+    border: 3px solid #1D2024;
+  }
+
+  .topBtn:focus {
+    box-shadow: none !important;
+  }
   
   .sidebar-sticky {
     position: relative;
@@ -151,10 +161,6 @@ body {
 
   .dropdown-elem:hover{
     background-color: rgb(238, 238, 238);
-  }
-
-  .btn:hover{
-    background-color: rgb(34, 34, 34);
   }
 
   .btn:focus{

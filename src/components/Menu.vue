@@ -1,5 +1,5 @@
 <template>
-<div style="padding-bottom:3%">
+<div style="padding-bottom:3%;">
   <div> 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" v-on:click="home()">Prenotazioni Padel</a>
@@ -16,7 +16,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-            <a class="nav-link text-dark dropdown-elem" aria-current="page" v-on:click="account()">Informazioni</a>
+            <b-link class="nav-link text-dark dropdown-elem" aria-current="page" :to="{name:'account'}">Informazioni</b-link>
           </li>
           <li>
             <a class="nav-link text-danger dropdown-elem" v-on:click="logout()">Logout</a>
@@ -45,7 +45,7 @@
               Prenotazioni
                </b-link>
           </li>
-          <li class="nav-item d-lg-none dropdown">
+          <li class="nav-item d-md-none dropdown">
                 <a class="dropdown-toggle nav-link" id="sidebarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <nobr>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="black" height="16" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
