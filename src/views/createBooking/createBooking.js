@@ -1,4 +1,4 @@
-// import BookingService from '../../Services/BookingService.js';
+import BookingService from '../../Services/BookingService.js';
 import Vue from 'vue';
 import{Datetime} from 'vue-datetime'
 
