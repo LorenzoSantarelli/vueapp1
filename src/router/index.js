@@ -1,13 +1,14 @@
 //import delle pagine dalle quali è composto il applicazione
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Login from "../views/login/login.vue"
-import Register from "../views/register/register.vue"
-import Home from "../views/home/home.vue"
-import Account from "../views/account/account.vue"
-import Booking from "../views/booking/booking.vue"
-import NewBooking from "../views/createBooking/createBooking.vue"
-import bookingList from "../views/bookingList/bookingList.vue"
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Login from "../views/login/login.vue";
+import Register from "../views/register/register.vue";
+import Home from "../views/home/home.vue";
+import Account from "../views/account/account.vue";
+import Booking from "../views/booking/booking.vue";
+import NewBooking from "../views/createBooking/createBooking.vue";
+import bookingList from "../views/bookingList/bookingList.vue";
+import Modifica from "../views/modifica/modifica.vue";
 
 Vue.use(VueRouter);
 
@@ -85,8 +86,19 @@ const routes = [
         component: Account,
         meta: {
             requiresAuth: true,
-            breadcrumb: "Gestione dell' account"
-        }
+            breadcrumb: "Gestione dell'account"
+        },
+        children: [
+            {
+                path: "/modifica",
+                name: 'modifica',
+                component: Modifica,
+                meta: {
+                    requiresAuth: true,
+                    breadcrumb: "Modifica informazioni"
+                }
+            }
+        ]
     }
 ]
 
