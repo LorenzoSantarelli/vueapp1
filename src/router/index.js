@@ -90,7 +90,7 @@ const routes = [
         },
         children: [
             {
-                path: "/modifica",
+                path: "modifica",
                 name: 'modifica',
                 component: Modifica,
                 meta: {

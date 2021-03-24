@@ -2,6 +2,15 @@
 <template>
     <div>
   <h1>Gestione account di {{username}}</h1>
+  <br>
+  <br>
+
+<div class="row text-right" style="margin-bottom: 10px">
+  <b-link :to="{path:'/booking/new'}">
+  <button class="btn btn-outline-primary btn-details">Modifica account</button>
+  </b-link>
+</div>
+
   <hr>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
   <div class="col-md-1"><li>{{title[0]}}: </li></div>
