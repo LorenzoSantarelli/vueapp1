@@ -35,7 +35,7 @@ export default{
             if(this.errors.length == 0){
                 
                 console.log(this.newBooking);
-                BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end, this.newBooking.options, this.newBooking.courtId)
+                BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end, null, this.newBooking.courtId)
                 .then(data => {
                 this.$set(this, "event", data);
                 console.log(this.newBooking);

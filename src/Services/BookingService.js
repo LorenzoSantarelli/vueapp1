@@ -38,6 +38,7 @@ export default {
         const config = {
             headers: {Authorization: `Bearer ${token}`}
         };
+        console.log(obj);
         let res = await axios.post('https://paddle.kube.cobaltica.net/api/Booking/', obj, config);
         console.log(res.data);
         return res.data;

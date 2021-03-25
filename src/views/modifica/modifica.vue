@@ -4,12 +4,14 @@
     <br>
     <br>
 
-    <div class="mb-3 row">
-        <label for="staticEmail" class="col-sm-1 col-form-label">Email</label>
-        <div class="col-sm-11">
-        <input class="form-control" type="text" aria-label="Disabled input example" v-bind:value="email" disabled readonly>
-        </div>
-    </div>
+<div v-if="codice === 200" class="alert alert-success" role="alert">
+  Elementi salvati
+</div>
+
+<div v-else class="alert alert-danger" role="alert">
+  Salvataggio non effettuato
+</div>
+
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Nome</label>
         <div class="col-sm-5">
@@ -24,6 +26,12 @@
         <label for="inputPassword" class="col-sm-1 col-form-label">Telefono</label>
         <div class="col-sm-5">
         <input type="number" class="form-control" id="inputPassword" v-model="telefono">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label">Email</label>
+        <div class="col-sm-11">
+        <input class="form-control" type="text" aria-label="Disabled input example" v-bind:value="email" disabled readonly>
         </div>
     </div>
     <div class="row">

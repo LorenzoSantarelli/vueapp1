@@ -36,10 +36,10 @@
            </div>
     </div>
 </div>
-  <div class="mb-3 ">
+  <!-- <div class="mb-3 ">
     <label for="exampleFormControlTextarea1" class="form-label">Inserisci una nota</label>
     <textarea class="form-control" rows="3" v-model="newBooking.options"></textarea>
-  </div>
+  </div> -->
   <div class="row text-center">
   <button class="btn btn-outline-primary btn-details" type="button" style="width: 15%; margin: auto; margin-top: 25px" v-on:click="create()">Salva</button>
   </div>  
