@@ -24,8 +24,7 @@ export default{
         this.email = this.name.email;
     },
     methods: {
-        updateUser(){
-
+        setData(){
             if(!this.nome){
                 this.nome = this.userInfo[0];
             }
@@ -37,8 +36,8 @@ export default{
             if(!this.telefono){
                 this.telefono = this.userInfo[2];
             }
-
-            
+        },
+        updateUser(){
 
             console.log(this.nome + ' ' + this.cognome + ' ' + this.telefono);
 
