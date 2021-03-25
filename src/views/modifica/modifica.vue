@@ -15,17 +15,23 @@
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Nome</label>
         <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputPassword" v-model="nome">
+        <input type="text" class="form-control" id="inputNome" v-model="nome">
         </div>
         <label for="inputPassword" class="col-sm-1 col-form-label" >Cognome</label>
         <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputPassword" v-model="cognome">
+        <input type="text" class="form-control" id="inputCognome" v-model="cognome">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Telefono</label>
         <div class="col-sm-5">
-        <input type="number" class="form-control" id="inputPassword" v-model="telefono">
+        <input type="number" class="form-control" id="inputTelefono" v-model="telefono">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label">Email</label>
+        <div class="col-sm-11">
+        <input class="form-control" type="text" aria-label="Disabled input example" v-bind:value="email" disabled readonly>
         </div>
     </div>
     <div class="mb-3 row">

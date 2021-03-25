@@ -23,7 +23,8 @@ export default{
                 options: null,
                 courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C'
             },
-            errors: []
+            errors: [],
+            codice: ''
         }
     },
     methods: {
@@ -42,6 +43,7 @@ export default{
                 })
                 .catch(error => {
                 this.errors.push(error.response.data.message);
+                this.codice = error.response.data.statusCode;
                 console.log(this.errors);
                 })
             }
