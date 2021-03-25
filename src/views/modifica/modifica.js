@@ -1,4 +1,4 @@
-// import UserService from '../../Services/UserService.js';
+import UserService from '../../Services/UserService.js';
 
 export default{
     name: 'modifica',
@@ -8,7 +8,7 @@ export default{
             cognome: '',
             telefono: '',
             errors: [],
-
+            codice: '',
             email: '',
             userInfo: [],
             name: []
@@ -41,14 +41,16 @@ export default{
 
             console.log(this.nome + ' ' + this.cognome + ' ' + this.telefono);
 
-            // UserService.edit(this.nome, this.cognome, this.telefono)
-            //     .then(data => {
-            //         this.$set(this, "event", data);
-            //         console.log(data);
-            //     })
-            //     .catch(error => {
-            //         this.errors.push(error.response.data.message);
-            //     })
+            UserService.edit(this.nome, this.cognome, this.telefono)
+                .then(data => {
+                    this.$set(this, "event", data);
+                    console.log(data);
+                })
+                .catch(error => {
+                    this.errors.push(error.response.data.message);
+                    this.codice = error.response.data.statusCode;
+                    console.log(this.errors);
+                })
         }
     }
 }
