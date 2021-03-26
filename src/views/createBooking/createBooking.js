@@ -1,21 +1,23 @@
 import BookingService from '../../Services/BookingService.js';
 import Vue from 'vue';
-import{Datetime} from 'vue-datetime'
+import { Datetime } from 'vue-datetime'
 
-Vue.extend({template: `<div class="mb-3">
+Vue.extend({
+    template: `<div class="mb-3">
 <label for="exampleFormControlTextarea1" class="form-label">Inserisci data e ora</label>
 <div class="input-group flex-nowrap">
     <span class="input-group-text" style="height:38px" id="addon-wrapping">Inizio</span>
 </div>
-</div>`, 
-components: {
-    datetime: Datetime
-}});
+</div>`,
+    components: {
+        datetime: Datetime
+    }
+});
 
-export default{
+export default {
     name: 'createBooking',
-    data(){
-        return{
+    data() {
+        return {
             newBooking: {
                 players: null,
                 start: null,
@@ -28,11 +30,28 @@ export default{
         }
     },
     methods: {
-        create(){
+        create() {
 
             this.errors = [];
 
-            
+
+
+            if (!this.newBooking.players) {
+                this.errors.push("Devi inserire il numero di giocatori");
+            }
+
+            if (!this.newBooking.start || !this.newBooking.end) {
+                this.errors.push("Devi inserire un'orario di inizio e uno di fine");
+            }
+
+            if (this.newBooking.start >= this.newBooking.end) {
+                this.errors.push("L'orario inserito non è valido");
+            }
+
+            if (!this.newBooking.options) {
+                this.errors.push("Il campo opzioni è vuoto");
+            }
+
             if(this.errors.length == 0){
                 
                 console.log(this.newBooking);
@@ -47,24 +66,9 @@ export default{
                 console.log(this.errors);
                 })
             }
-            else{
-                if(!this.newBooking.players){
-                    this.errors.push("Devi inserire il numero di giocatori");
-                }
-    
-                if(!this.newBooking.start || !this.newBooking.end){
-                    this.errors.push("Devi inserire un'orario di inizio e uno di fine");
-                }
-    
-                if(this.newBooking.start >= this.newBooking.end){
-                    this.errors.push("L'orario inserito non è valido");
-                }
-    
-                if(!this.newBooking.options){
-                    this.errors.push("Il campo opzioni è vuoto");
-                }
-                console.log(this.errors);
-            }
+            
+            console.log(this.errors);
+
         }
     }
 }
