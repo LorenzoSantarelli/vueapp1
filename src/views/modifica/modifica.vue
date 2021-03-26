@@ -2,7 +2,17 @@
 <div>
     <h1>Modifica profilo</h1>
     <br>
-    <br>
+    
+
+<div v-if="codice === 200" class="alert alert-success" role="alert">
+  Elementi salvati
+</div>
+
+<div v-if="codice === 400 || codice === 409 || codice === 500" class="alert alert-danger" role="alert">
+  {{errors}}
+</div>
+
+<br>
 
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Nome</label>
@@ -27,7 +37,11 @@
         </div>
     </div>
     <div class="row">
-    <button class="btn btn-outline-primary btn-details" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 15%; margin: 25px auto" v-on:click="setData()">Salva</button>
+    <button class="btn btn-outline-primary btn-details" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 15%; margin: 25px auto" v-on:click="setData()">
+      <div class="spinner-border" role="status" v-if="loading === true">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+      Salva</button>
     </div>
 
 

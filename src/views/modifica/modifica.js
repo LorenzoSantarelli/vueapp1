@@ -7,11 +7,12 @@ export default{
             nome: '',
             cognome: '',
             telefono: '',
-            errors: [],
+            errors: '',
             codice: '',
             email: '',
             userInfo: [],
-            name: []
+            name: [],
+            loading: false,
         }
     },
     mounted(){
@@ -38,7 +39,7 @@ export default{
             }
         },
         updateUser(){
-
+            this.loading = true;
             console.log(this.nome + ' ' + this.cognome + ' ' + this.telefono);
 
             UserService.edit(this.nome, this.cognome, this.telefono)
@@ -47,7 +48,8 @@ export default{
                     console.log(data);
                 })
                 .catch(error => {
-                    this.errors.push(error.response.data.message);
+                    this.errors = error.response.data.message;
+                    this.loading = false;
                     this.codice = error.response.data.statusCode;
                     console.log(this.errors);
                 })

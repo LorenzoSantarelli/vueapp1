@@ -21,7 +21,7 @@
             <span>Hai dimenticato la password?</span>
         </div>
         <br>
-        <ul class="text-danger">
+        <ul v-if="errors.length" class="alert alert-danger" role="alert">
             <li v-for="(error, i) in errors" :key="i">
                 {{error}}
             </li>
