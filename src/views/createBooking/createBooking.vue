@@ -3,7 +3,20 @@
 <form style="margin-bottom:100px">
     <h1>Crea una prenotazione</h1>
     <br>
-    <br>
+    
+
+<div v-if="codice === 201" class="alert alert-success" role="alert">
+  Elementi salvati
+</div>
+
+<div v-if="errors.length" class="alert alert-danger" role="alert">
+  <div v-for="(error,i ) in errors" :key="i" >
+    {{error}}
+  </div>
+</div>
+
+<br>
+
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Numero di giocatori</label>
         <br>
@@ -41,7 +54,11 @@
     <textarea class="form-control" rows="3" v-model="newBooking.options"></textarea>
   </div> -->
   <div class="row text-center">
-  <button class="btn btn-outline-primary btn-details" type="button" style="width: 15%; margin: auto; margin-top: 25px" v-on:click="create()">Salva</button>
+  <button class="btn btn-outline-primary btn-details" type="button" style="width: 15%; margin: auto; margin-top: 25px" v-on:click="create()">
+    <div class="spinner-border" role="status" v-if="loading === true">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+    Salva</button>
   </div>  
 </form>
 
