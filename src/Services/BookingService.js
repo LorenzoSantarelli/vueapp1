@@ -31,11 +31,7 @@ export default {
             options: options,
             courtId: courtId
         }
-        let token = localStorage.getItem("token");
-        const config = {
-            headers: {Authorization: `Bearer ${token}`}
-        };
-        let res = await axios.post(Config.url + 'Booking/', obj, config);
+        let res = await axios.post(Config.url + 'Booking/', obj, Config.config);
         console.log(res.data);
         return res.data;
     }
