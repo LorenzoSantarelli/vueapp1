@@ -1,5 +1,6 @@
 // Import di axios
 import axios from 'axios';
+import Config from './Config.js'
 
 export default {
     // Dichiarazione del metodo asincrono getBoking
@@ -11,17 +12,13 @@ export default {
             headers: {Authorization: `Bearer ${token}`},
             params: {page: page, pageSize: pageSize}
         };
-        let res = await axios.get('https://paddle.kube.cobaltica.net/api/Booking', config);
+        let res = await axios.get(Config.url + 'Booking', config);
         return res;
     },
 
     // Dichiarazione del metodo asincrono bookingDetails usato per visualizzare i dettagli di un singolo record
     async bookingDetail(bookingId){
-        let token = localStorage.getItem("token");
-        const config = {
-            headers: {Authorization: `Bearer ${token}`}
-        };
-        let res = await axios.get('https://paddle.kube.cobaltica.net/api/Booking/' + bookingId, config);
+        let res = await axios.get(Config.url + 'Booking/' + bookingId, Config.config);
         return res.data;
     },
 
@@ -38,8 +35,7 @@ export default {
         const config = {
             headers: {Authorization: `Bearer ${token}`}
         };
-        console.log(obj);
-        let res = await axios.post('https://paddle.kube.cobaltica.net/api/Booking/', obj, config);
+        let res = await axios.post(Config.url + 'Booking/', obj, config);
         console.log(res.data);
         return res.data;
     }

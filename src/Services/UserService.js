@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Config from './Config.js'
 //definizione della login
 export default {
     async login(email, password) {
@@ -7,7 +8,7 @@ export default {
             password: password
         };
         //chiamata post contenente l'email e la password
-        let res = await axios.post("https://paddle.kube.cobaltica.net/api/Users/login", obj);
+        let res = await axios.post(Config.url + "Users/login", obj);
         console.log(res);
         //salvataggio sul local storage del Token e dello user
         localStorage.setItem('token', res.headers['x-token']);
@@ -27,7 +28,7 @@ export default {
             lastName: lastName
         };
         //chiamata post per effettuare la registrazione contenente tutti i dati dell'utente
-        let res = await axios.post("https://paddle.kube.cobaltica.net/api/Users/sign-up", obj);
+        let res = await axios.post(Config.url + "Users/sign-up", obj);
         return res.data;
     },
     // Modifica del nome, del cognome e del numero di telefono
@@ -37,7 +38,7 @@ export default {
             lastName: lastName,
             phone: phone
         };
-        let res = await axios.patch("https://paddle.kube.cobaltica.net/api/Users/updateuser", obj);
+        let res = await axios.patch(Config.url + "Users/updateuser", obj, Config.config);
         return res.data;
     }
 }

@@ -7,12 +7,15 @@ export default{
             nome: '',
             cognome: '',
             telefono: '',
-            errors: '',
             codice: '',
             email: '',
             userInfo: [],
             name: [],
+            errors: [],
             loading: false,
+            nameErr: false,
+            lastnameErr: false,
+            phoneErr: false
         }
     },
     mounted(){
@@ -23,36 +26,50 @@ export default{
         this.userInfo.push(this.name.phone);
 
         this.email = this.name.email;
+        
+        this.nome = this.userInfo[0];
+        this.cognome = this.userInfo[1];
+        this.telefono = this.userInfo[2];
     },
     methods: {
-        setData(){
+        updateUser(){
+
+            this.loading = true;
+            this.nameErr = false;
+            this.lastnameErr = false;
+            this.phoneErr = false;
+            this.errors = [];
+
             if(!this.nome){
-                this.nome = this.userInfo[0];
+                this.nameErr = true;
+                this.errors.push("Il campo del nome è vuoto");
             }
 
             if(!this.cognome){
-                this.cognome = this.userInfo[1];
+                this.lastnameErr = true;
+                this.errors.push("Il campo del cognome è vuoto");
             }
 
             if(!this.telefono){
-                this.telefono = this.userInfo[2];
+                this.phoneErr = true;
+                this.errors.push("Il campo del telefono è vuoto");
             }
-        },
-        updateUser(){
-            this.loading = true;
-            console.log(this.nome + ' ' + this.cognome + ' ' + this.telefono);
 
-            UserService.edit(this.nome, this.cognome, this.telefono)
+            this.loading = false;
+            if(this.errors.length == 0){
+                this.loading = true;
+                UserService.edit(this.nome, this.cognome, this.telefono)
                 .then(data => {
                     this.$set(this, "event", data);
                     console.log(data);
                 })
                 .catch(error => {
-                    this.errors = error.response.data.message;
+                    this.errors.push(error.response.data.message);
                     this.loading = false;
                     this.codice = error.response.data.statusCode;
                     console.log(this.errors);
                 })
+            }
         }
     }
 }

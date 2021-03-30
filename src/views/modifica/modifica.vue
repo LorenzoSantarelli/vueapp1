@@ -8,8 +8,10 @@
   Elementi salvati
 </div>
 
-<div v-if="codice === 400 || codice === 409 || codice === 500" class="alert alert-danger" role="alert">
-  {{errors}}
+<div v-if="errors.length" class="alert alert-danger" role="alert">
+  <div v-for="(error, i) in errors" :key="i">
+  {{error}}
+  </div>
 </div>
 
 <br>
@@ -17,17 +19,17 @@
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Nome</label>
         <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputNome" v-model="nome">
+        <input type="text" class="form-control" id="inputNome" v-model="nome" v-bind:class="{'is-invalid': nameErr}">
         </div>
         <label for="inputPassword" class="col-sm-1 col-form-label" >Cognome</label>
         <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputCognome" v-model="cognome">
+        <input type="text" class="form-control" id="inputCognome" v-model="cognome" v-bind:class="{'is-invalid': lastnameErr}">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-1 col-form-label">Telefono</label>
         <div class="col-sm-5">
-        <input type="number" class="form-control" id="inputTelefono" v-model="telefono">
+        <input type="number" class="form-control" id="inputTelefono" v-model="telefono" v-bind:class="{'is-invalid': phoneErr}">
         </div>
     </div>
     <div class="mb-3 row">
@@ -37,38 +39,12 @@
         </div>
     </div>
     <div class="row">
-    <button class="btn btn-outline-primary btn-details" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 15%; margin: 25px auto" v-on:click="setData()">
+    <button class="btn btn-outline-primary btn-details" v-on:click="updateUser()" type="button" style="width: 15%; margin: 25px auto" >
       <div class="spinner-border" role="status" v-if="loading === true">
                 <span class="visually-hidden">Loading...</span>
             </div>
       Salva</button>
     </div>
-
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Attenzione!</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Stai per modificare i dati di questo account.<br>
-        Le seguenti informazioni saranno salvate:<br>
-        <strong>Nome:</strong> {{nome}}.<br>
-        <strong>Cognome:</strong> {{cognome}}.<br>
-        <strong>Numero di telefono:</strong> {{telefono}}.<br>
-        <small>Clicca su conferma o chiudi questo pop-up per modificare le informazioni.</small>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="updateUser()">Conferma</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 </div>
 </template>
