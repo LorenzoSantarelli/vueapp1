@@ -70,6 +70,7 @@ export default{
                     console.log(this.errors);
                 })
             }
+            this.loading = false;
         }
     }
 }
