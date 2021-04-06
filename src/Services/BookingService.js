@@ -23,15 +23,17 @@ export default {
     },
 
     //Dichiarazione del metodo newBooking per la creazione di un nuovo oggetto
-    async newBooking(players, start, end, options, courtId){
+    async newBooking(players, start, end, voucher, options, courtId){
         var obj = {
             players: players,
             start: start,
             end: end,
+            voucher: voucher,
             options: options,
             courtId: courtId
         }
         let res = await axios.post(Config.url + 'Booking/', obj, Config.config);
+        console.log('Prenotazione creata. ');
         console.log(res.data);
         return res.data;
     }

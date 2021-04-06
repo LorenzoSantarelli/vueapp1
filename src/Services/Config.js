@@ -1,12 +1,16 @@
+import axios from 'axios'
 export default{
     name: 'Config',
-    url: "https://paddle.kube.cobaltica.net/api/",
+    url: "https://staging.citypadelperugia.it/api/",
     
-    config: {
-        headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
-    }
-    // pageConfig: {
-    //     headers: {Authorization: `Bearer ${localStorage.getItem("token")}`},
-    //     params: {page: page, pageSize: pageSize}
-    // }
+    config: axios.interceptors.request.use(
+        function(config) {
+         const token = localStorage.getItem('token')
+         if (token) config.headers.Authorization = `Bearer ${token}`
+         return config
+        },
+        function(error) {
+         return Promise.reject(error)
+        }
+       )
 }

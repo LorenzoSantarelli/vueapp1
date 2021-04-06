@@ -180,6 +180,9 @@ body {
     width: 70%;
   }
   
+  a:hover{
+    cursor: pointer;
+  }
 
   @media(min-width: 1367px){
     .dim1{
