@@ -1,8 +1,8 @@
-import axios from 'axios';
-
+import axios from 'axios'
 export default{
     name: 'Config',
-    url: "https://paddle.kube.cobaltica.net/api/",
+    url: "https://staging.citypadelperugia.it/api/",
+    
     config: axios.interceptors.request.use(
         function(config) {
          const token = localStorage.getItem('token')

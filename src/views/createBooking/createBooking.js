@@ -22,8 +22,10 @@ export default {
                 players: null,
                 start: null,
                 end: null,
-                options: null,
-                courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C'
+                voucher: null,
+                options: [],
+                courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C',
+                userId: ''
             },
             errors: [],
             loading: false,
@@ -34,10 +36,8 @@ export default {
         create() {
 
             this.errors = [];
-
-           this.loading = false;
             
-            
+        
                 if(!this.newBooking.players){
                     this.errors.push("Devi inserire il numero di giocatori");
                 }
@@ -49,24 +49,20 @@ export default {
                 if(this.newBooking.start >= this.newBooking.end){
                     this.errors.push("L'orario inserito non è valido");
                 }
-    
-                // if(!this.newBooking.options){
-                //     this.errors.push("Il campo opzioni è vuoto");
-                // }
-                console.log(this.errors);
+
                 if(this.errors.length == 0){
                     this.loading = true;
                     console.log(this.newBooking);
-                    BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end, null, this.newBooking.courtId)
+                    BookingService.newBooking(this.newBooking.players, this.newBooking.start, this.newBooking.end,this.newBooking.voucher, this.newBooking.options, this.newBooking.courtId)
                     .then(data => {
                     this.$set(this, "event", data);
-                    console.log(this.newBooking);
+                    this.codice = 201;
+                    this.loading = false;
                     })
                     .catch(error => {
-                    this.errors.push(error.response.data);
-                    this.loading = false;
-                    this.codice = error.response.data.statusCode;
+                    this.errors.push(error.response.data.message);
                     console.log(this.errors);
+                    this.loading = false;
                     })
                 }
         }

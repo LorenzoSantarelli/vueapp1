@@ -13,18 +13,25 @@ export default {
             pageSize: 2,
             pageCount: 3,
             data: 0,
-            loading: false
+            loading: false,
+            componentKey: 0,
+            n: 0
         }
     },
     //viene richiamato il metodo forceRender() che permette alla NavBar di refresharsi
     mounted(){
         this.$root.$refs.App.forceRerender();
+        this.forceRerender();
     },
     //viene richiamato il metodo getBooking che permette di selezionare una prenotazione
     created(){
         this.getBooking();
+        this.$root.$refs.bookingList = this;
     },
     methods: {
+        forceRerender() {
+            this.componentKey += 1;
+        },
         check(){
             if(this.currentPage == 1){
                 this.disabledTop = true;
@@ -43,6 +50,8 @@ export default {
             BookingService.getBooking(this.currentPage, this.pageSize)
             .then(data => {
                 this.$set(this, "event", data);
+                // this.n = data.length / 2;
+                // this.pageCount = Math.round(this.n);
                 this.data = data.data;
                 this.check();
                 this.loading = false;

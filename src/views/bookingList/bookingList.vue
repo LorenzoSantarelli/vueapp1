@@ -5,7 +5,7 @@
 
 <router-view v-if="$route.name !== 'bookingList'" />
 
-<div v-if="$route.name === 'bookingList'" >
+<div v-if="$route.name === 'bookingList'" :key="componentKey" >
 <h1>Elenco prenotazioni</h1> 
 <br>
 <br>

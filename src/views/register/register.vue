@@ -123,7 +123,7 @@
 
       <span class="text-danger" v-if="errors.length"> {{ errors[0] }} </span>
 
-      <b-button type="submit" class="register-btn" variant="primary">Registrati
+      <b-button type="submit" class="register-btn" variant="primary" v-on:click="signUp()">Registrati
           <div class="spinner-border" role="status" v-if="loading === true">
                 <span class="visually-hidden">Loading...</span>
             </div>
