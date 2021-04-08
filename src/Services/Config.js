@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 export default{
     name: 'Config',
     url: "https://staging.citypadelperugia.it/api/",
