@@ -9,8 +9,6 @@ export default{
             telefono: '',
             codice: '',
             email: '',
-            userInfo: [],
-            name: [],
             errors: [],
             loading: false,
             nameErr: false,
@@ -20,21 +18,20 @@ export default{
     },
     mounted(){
 
-        this.name = JSON.parse(localStorage.user);
-        this.userInfo.push(this.name.firstName);
-        this.userInfo.push(this.name.lastName);
-        this.userInfo.push(this.name.phone);
+        var user = JSON.parse(localStorage.user);
+        // this.userInfo.push(this.name.firstName);
+        // this.userInfo.push(this.name.lastName);
+        // this.userInfo.push(this.name.phoneNumber);
 
-        this.email = this.name.email;
-        
-        this.nome = this.userInfo[0];
-        this.cognome = this.userInfo[1];
-        this.telefono = this.userInfo[2];
+        this.email = user.email;
+        this.nome = user.firstName;
+        this.cognome = user.lastName;
+        this.telefono = user.phoneNumber;
     },
     methods: {
         updateUser(){
 
-            this.loading = true;
+            this.codice = 0;
             this.nameErr = false;
             this.lastnameErr = false;
             this.phoneErr = false;
@@ -55,14 +52,15 @@ export default{
                 this.errors.push("Il campo del telefono è vuoto");
             }
 
-            this.loading = false;
             if(this.errors.length == 0){
+                this.loading = true;
                 UserService.edit(this.nome, this.cognome, this.telefono)
                 .then(data => {
                     this.$set(this, "event", data);
                     this.codice = 200;
                     localStorage.setItem('user', JSON.stringify(data));
                     console.log(data);
+                    this.loading = false;
                 })
                 .catch(error => {
                     this.errors.push(error.response.data.message);
@@ -71,7 +69,6 @@ export default{
                     console.log(this.errors);
                 })
             }
-            this.loading = false;
         }
     }
 }

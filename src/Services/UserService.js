@@ -32,11 +32,11 @@ export default {
         return res.data;
     },
     // Modifica del nome, del cognome e del numero di telefono
-    async edit(firstName, lastName, phone) {
+    async edit(firstName, lastName, phoneNumber) {
         var obj = {
             firstName: firstName,
             lastName: lastName,
-            phone: phone
+            phoneNumber: phoneNumber
         };
         let res = await axios.patch(Config.url + "Users/updateuser", obj, Config.config);
         return res.data;

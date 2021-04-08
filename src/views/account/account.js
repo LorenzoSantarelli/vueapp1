@@ -23,7 +23,7 @@ export default{
             this.user.push(name.firstName);
             this.user.push(name.lastName);
             this.user.push(name.email);
-            this.user.push(name.phone);
+            this.user.push(name.phoneNumber);
         }
     },
     // Richiamo del metodo name()
