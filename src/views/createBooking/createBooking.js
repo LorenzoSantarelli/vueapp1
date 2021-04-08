@@ -23,9 +23,12 @@ export default {
                 start: null,
                 end: null,
                 voucher: null,
-                options: [],
                 courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C',
-                userId: ''
+                userId: '',
+                // selected: [],
+                options: [
+                { text: 'rackets', value: 'rackets' },
+                ]
             },
             errors: [],
             loading: false,
@@ -34,7 +37,7 @@ export default {
     },
     methods: {
         create() {
-
+                    console.log(this.newBooking.selected);
             this.errors = [];
             
         

@@ -17,7 +17,8 @@
 
 <br>
 
-    <div class="mb-3">
+    <div class="row mb-3">
+      <div class="col">
         <label for="exampleFormControlInput1" class="form-label">Numero di giocatori</label>
         <br>
         <div class="form-check form-check-inline">
@@ -28,6 +29,19 @@
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" v-model="newBooking.players" v-bind:value="4">
             <label class="form-check-label" for="inlineRadio2">4</label>
         </div>
+      </div>
+      <div class="col">
+        <b-form-group label="Using sub-components:" v-slot="{ ariaDescribedby }">
+      <b-form-checkbox-group
+        id="checkbox-group-2"
+        v-model="options"
+        :aria-describedby="ariaDescribedby"
+        name="flavour-2"
+      >
+        <b-form-checkbox value="orange">Orange</b-form-checkbox>
+      </b-form-checkbox-group>
+      </b-form-group>
+      </div>
     </div>
   <div class="row mb-3">
     <div class="col">
