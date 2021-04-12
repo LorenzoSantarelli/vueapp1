@@ -17,11 +17,11 @@
 <br>
 
     <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-1 col-form-label">Nome</label>
+        <label for="inputName" class="col-sm-1 col-form-label">Nome</label>
         <div class="col-sm-5">
         <input type="text" class="form-control" id="inputNome" v-model="nome" v-bind:class="{'is-invalid': nameErr}">
         </div>
-        <label for="inputPassword" class="col-sm-1 col-form-label" >Cognome</label>
+        <label for="inputLastName" class="col-sm-1 col-form-label" >Cognome</label>
         <div class="col-sm-5">
         <input type="text" class="form-control" id="inputCognome" v-model="cognome" v-bind:class="{'is-invalid': lastnameErr}">
         </div>
