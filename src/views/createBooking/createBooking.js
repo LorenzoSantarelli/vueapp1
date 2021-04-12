@@ -32,6 +32,18 @@ export default {
             codice: ''
         }
     },
+    mounted(){
+        BookingService.priceList()
+        .then(data => {
+            this.$set(this, "event", data);
+            this.newBooking.options = data;
+            console.log(this.newBooking.options);
+        })
+        .catch(error => {
+            this.errors.push(error.message);
+            console.log(this.errors);
+        })
+    },
     methods: {
         create() {
 
@@ -57,6 +69,7 @@ export default {
                     .then(data => {
                     this.$set(this, "event", data);
                     this.codice = 201;
+                    console.log(this.newBooking);
                     this.loading = false;
                     })
                     .catch(error => {

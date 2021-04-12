@@ -39,8 +39,7 @@ export default {
     },
 
     async priceList(){
-        let res = await axios.post(Config.url + 'PriceOption/list', Config.config);
-        console.log(res.data);
+        let res = await axios.get(Config.url + 'PriceOption/list', Config.config);
         return res.data;
     }
 }
