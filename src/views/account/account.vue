@@ -21,7 +21,7 @@
       <div class="input-group-text font-weight-bold" style="border: none; background-color: white" id="addon-wrapping">{{title[0]}} :</div>
     </div>
     <div class="col-sm-3">
-      <div type="text" class="form-control" style="border: none" aria-label="Nome" aria-describedby="addon-wrapping">{{user[0]}}</div>
+      <div type="text" class="form-control" style="border: none" aria-label="Name" aria-describedby="addon-wrapping">{{user[0]}}</div>
     </div>
   </div>
   <div class="row align-items-start">
@@ -29,7 +29,7 @@
       <div class="input-group-text font-weight-bold" style="border: none; background-color: white" id="addon-wrapping">{{title[1]}} :</div>
     </div>
     <div class="col-sm-3">
-      <div type="text" class="form-control" style="border: none" aria-label="Cognome" aria-describedby="addon-wrapping">{{user[1]}}</div>
+      <div type="text" class="form-control" style="border: none" aria-label="lastName" aria-describedby="addon-wrapping">{{user[1]}}</div>
     </div>
   </div>
   <div class="row align-items-start">
@@ -37,7 +37,7 @@
       <div class="input-group-text font-weight-bold" style="border: none; background-color: white" id="addon-wrapping">{{title[2]}} :</div>
     </div>
     <div class="col-sm-3">
-      <div type="text" class="form-control" style="border: none" aria-label="Cognome" aria-describedby="addon-wrapping">{{user[2]}}</div>
+      <div type="text" class="form-control" style="border: none" aria-label="Email" aria-describedby="addon-wrapping">{{user[2]}}</div>
     </div>
   </div>
   <div class="row align-items-start">
@@ -45,7 +45,7 @@
       <div class="input-group-text font-weight-bold" style="border: none; background-color: white" id="addon-wrapping">{{title[3]}} :</div>
     </div>
     <div class="col-sm-3">
-      <div type="text" class="form-control" style="border: none" aria-label="Cognome" aria-describedby="addon-wrapping">{{user[3]}}</div>
+      <div type="text" class="form-control" style="border: none" aria-label="Phone" aria-describedby="addon-wrapping">{{user[3]}}</div>
     </div>
   </div>
 
