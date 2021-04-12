@@ -38,7 +38,6 @@ export default {
     mounted(){
         BookingService.priceList()
         .then(data => {
-            this.$set(this, "event", data);
             this.newBooking.options = data;
             console.log(this.newBooking.options);
         })

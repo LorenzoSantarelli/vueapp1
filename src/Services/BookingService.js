@@ -13,7 +13,7 @@ export default {
             params: {page: page, pageSize: pageSize}
         };
         let res = await axios.get(Config.url + 'Booking', config);
-        return res;
+        return res.data;
     },
 
     // Dichiarazione del metodo asincrono bookingDetails usato per visualizzare i dettagli di un singolo record

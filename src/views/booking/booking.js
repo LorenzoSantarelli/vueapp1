@@ -20,7 +20,6 @@ export default {
         getBooking(){
             BookingService.bookingDetail(this.id)
                 .then(data => {
-                    this.$set(this, "event", data);
                     this.booking = data;
                     console.log('Booking Info: ');
                     console.log(this.booking);

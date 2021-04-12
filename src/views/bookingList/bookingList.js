@@ -25,7 +25,7 @@ export default {
     },
     //viene richiamato il metodo getBooking che permette di selezionare una prenotazione
     created(){
-        this.getBooking();
+        this.getBookingList();
         this.$root.$refs.bookingList = this;
     },
     methods: {
@@ -41,7 +41,7 @@ export default {
             }
         },
         //permette all'utente di selezionare una singola prenotazione
-        getBooking(){
+        getBookingList(){
 
             this.disabledTop = false;
             this.disabledBottom = false;
@@ -49,10 +49,7 @@ export default {
 
             BookingService.getBooking(this.currentPage, this.pageSize)
             .then(data => {
-                this.$set(this, "event", data);
-                // this.n = data.length / 2;
-                // this.pageCount = Math.round(this.n);
-                this.data = data.data;
+                this.data = data;
                 this.check();
                 this.loading = false;
             })
@@ -66,7 +63,7 @@ export default {
             if(this.currentPage != 1){
                 this.currentPage -= 1;
                 console.log("Pagina: " + this.currentPage);
-                this.getBooking();
+                this.getBookingList();
             }
         },
         //metodo per andare alla pagina successiva
@@ -74,25 +71,25 @@ export default {
             if(this.currentPage < this.pageCount){
                 this.currentPage += 1;
                 console.log("Pagina: " + this.currentPage);
-                this.getBooking();
+                this.getBookingList();
             }
         },
         //metodo per andare alla prima pagina
         first(){
             this.currentPage = 1;
             console.log("Pagina: " + this.currentPage);
-            this.getBooking();
+            this.getBookingList();
         },
         //metodo per andare all'ultima pagina
         last(){
             this.currentPage = this.pageCount;
             console.log("Pagina: " + this.currentPage);
-            this.getBooking();
+            this.getBookingList();
         },
         //metodo che cambia pagina in base alla selezione dell'utente
         change(pages){
             this.currentPage = pages;
-            this.getBooking();
+            this.getBookingList();
         },
         //metodo per aprire il dettaglio di una prenotazione
         details(){

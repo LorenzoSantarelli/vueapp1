@@ -6,6 +6,7 @@ export default {
     name: 'Login',
     data() {
         return {
+            data: '',
             errore: null,
             loading: false,
             errors: [],
@@ -54,7 +55,7 @@ export default {
                 this.loading = true;
                 UserService.login(this.input.username, this.input.password)
                     .then(data => {
-                        this.$set(this, "event", data);
+                        this.data = data;
                         this.$root.$refs.App.authenticated();
                         this.$router.replace({ name: "home" });
                     })

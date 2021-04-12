@@ -56,7 +56,6 @@ export default{
                 this.loading = true;
                 UserService.edit(this.nome, this.cognome, this.telefono)
                 .then(data => {
-                    this.$set(this, "event", data);
                     this.codice = 200;
                     localStorage.setItem('user', JSON.stringify(data));
                     console.log(data);

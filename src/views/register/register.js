@@ -54,9 +54,8 @@ export default {
       UserService.signUp(this.form.email, this.form.password, this.form.firstName, this.form.lastName)
       .then(data => {
         console.log(data);
-        this.$set(this, "event", data);
         this.loading = false;
-        this.$router.replace({ name: 'home' });
+        this.$router.replace({ name: 'login' });
       })
       .catch(error =>{
         this.loading = true;
@@ -77,7 +76,7 @@ export default {
       if(!this.validEmail(this.form.email)){
         this.mailErr = "L'email inserita non è valida";
       }
-      if(this.input.confpw != this.input.password){
+      if(this.form.confpw != this.form.password){
         this.errors.push("Le password non coincidono");
       }
       if (this.$v.form.$anyError) {
