@@ -26,18 +26,27 @@ export default {
                 courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C',
                 userId: '',
                 // selected: [],
-                options: [
-                { text: 'rackets', value: 'rackets' },
-                ]
+                options: []
             },
             errors: [],
             loading: false,
             codice: ''
         }
     },
+
+    mounted(){
+
+        BookingService.priceList()
+        .then(data => {this.$set(this, "event", data); this.newBooking.options = data;})
+        .catch(error => {
+        this.errors.push(error.response.data.message);})
+
+                console.log(this.newBooking.options);
+    },
+
     methods: {
         create() {
-                    console.log(this.newBooking.selected);
+
             this.errors = [];
             
         

@@ -31,16 +31,15 @@
         </div>
       </div>
       <div class="col">
-        <b-form-group label="Using sub-components:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
+        <b-form-group label="Using options array:" v-slot="{ ariaDescribedby }">
+        <b-form-checkbox-group
+        id="checkbox-group-1"
         v-model="options"
+        :options="options"
         :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="orange">Orange</b-form-checkbox>
-      </b-form-checkbox-group>
-      </b-form-group>
+        name="flavour-1"
+        ></b-form-checkbox-group>
+        </b-form-group>
       </div>
     </div>
   <div class="row mb-3">
