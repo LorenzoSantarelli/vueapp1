@@ -37,7 +37,7 @@ export default {
         console.log(res.data);
         return res.data;
     },
-
+    //Metodo priceList per la visualizzazione della lista delle opzioni di prenotazione
     async priceList(){
         let res = await axios.get(Config.url + 'PriceOption/list', Config.config);
         return res.data;

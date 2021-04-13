@@ -1,3 +1,4 @@
+//Dichiarazione dell'url dell'api e del bearer token per alleggerire i codici
 import axios from 'axios';
 export default{
     name: 'Config',

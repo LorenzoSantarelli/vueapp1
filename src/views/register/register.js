@@ -1,9 +1,9 @@
+//Import dei servizi
 import UserService from '../../Services/UserService.js'
-
-
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
 
+//Dichiarazione variabili
 export default {
   name: 'register',
   mixins: [validationMixin],
@@ -44,11 +44,12 @@ export default {
       },
     }
   },
+  //Metodi per refreshare la navbar
   mounted(){
     this.$root.$refs.App.forceRerender();
-    this.$root.$refs.Nav.reLoad();
   },
   methods: {
+    //Richiamo del metodo di registrazione che prende i parametri dei email, password, nome e cognome. Gestione degli errori
     signUp(){
       this.loading = true;
       UserService.signUp(this.form.email, this.form.password, this.form.firstName, this.form.lastName)
@@ -63,6 +64,7 @@ export default {
         this.loading = false;
       })
     },
+    //Metodo che controlla la validità dell'email inserita
     validEmail: function (email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
@@ -71,6 +73,7 @@ export default {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
     },
+    //Metodo di validazione del form
     onSubmit() {
       this.$v.form.$touch();
       if(!this.validEmail(this.form.email)){

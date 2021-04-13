@@ -2,6 +2,7 @@ import UserService from '../../Services/UserService.js';
 
 export default{
     name: 'modifica',
+    //Dichiarazione delle variabili
     data(){
         return{
             nome: '',
@@ -18,11 +19,8 @@ export default{
     },
     mounted(){
 
+        //Assegnazione del valore originale delle informazioni utente
         var user = JSON.parse(localStorage.user);
-        // this.userInfo.push(this.name.firstName);
-        // this.userInfo.push(this.name.lastName);
-        // this.userInfo.push(this.name.phoneNumber);
-
         this.email = user.email;
         this.nome = user.firstName;
         this.cognome = user.lastName;
@@ -31,6 +29,7 @@ export default{
     methods: {
         updateUser(){
 
+            //Controllo lato client
             this.codice = 0;
             this.nameErr = false;
             this.lastnameErr = false;
@@ -51,7 +50,7 @@ export default{
                 this.phoneErr = true;
                 this.errors.push("Il campo del telefono è vuoto");
             }
-
+            //Richiamo del metodo edit al quale vengono passati come parametri il nome, il cognome e il numero di telefono e gestione degli errori
             if(this.errors.length == 0){
                 this.loading = true;
                 UserService.edit(this.nome, this.cognome, this.telefono)
