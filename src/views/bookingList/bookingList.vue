@@ -7,16 +7,6 @@
       <h1>Elenco prenotazioni</h1>
       <br />
       <br />
-      <div style="text-align: center" v-if="loading === true">
-        <div
-          class="spinner-border text-primary m-5"
-          style="width: 3.2rem; height: 3.2rem"
-          role="status"
-        >
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-
       <div class="row text-right" style="margin-bottom: 10px">
         <b-link :to="{ path: '/booking/new' }">
           <button class="btn btn-outline-primary btn-details">
@@ -25,7 +15,223 @@
         </b-link>
       </div>
 
-      <div v-if="loading === false">
+      <div style="text-align: center" v-if="loading === true">
+        <div class="table-responsive">
+          <table class="table table-md">
+            <thead>
+              <tr>
+                <th>
+                  <nobr style="margin-left:-8%">Booking Id</nobr>
+                  <nobr style="margin-left:20%">Codice Prenotazione</nobr>
+                  <nobr style="margin-left:20%">Data</nobr>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <svg
+                    role="img"
+                    width="100%"
+                    height="55"
+                    aria-labelledby="loading-aria"
+                    viewBox="0 0 1160 55"
+                    preserveAspectRatio="none"
+                  >
+                    <title id="loading-aria">Loading...</title>
+                    <rect
+                      x="0"
+                      y="0"
+                      width="100%"
+                      height="100%"
+                      clip-path="url(#clip-path)"
+                      style="fill: url('#fill')"
+                    ></rect>
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect
+                          x="80"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="320"
+                          height="15"
+                        />
+                        <rect
+                          x="113"
+                          y="117"
+                          rx="3"
+                          ry="3"
+                          width="320"
+                          height="15"
+                        />
+                        <rect
+                          x="590"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="80"
+                          height="15"
+                        />
+                        <rect
+                          x="790"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="180"
+                          height="15"
+                        />
+                      </clipPath>
+                      <linearGradient id="fill">
+                        <stop
+                          offset="0.599964"
+                          stop-color="#f3f3f3"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="-2; -2; 1"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#ecebeb"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="-1; -1; 2"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#f3f3f3"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="0; 0; 3"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <svg
+                    role="img"
+                    width="100%"
+                    height="55"
+                    aria-labelledby="loading-aria"
+                    viewBox="0 0 1160 55"
+                    preserveAspectRatio="none"
+                  >
+                    <title id="loading-aria">Loading...</title>
+                    <rect
+                      x="0"
+                      y="0"
+                      width="100%"
+                      height="100%"
+                      clip-path="url(#clip-path)"
+                      style="fill: url('#fill')"
+                    ></rect>
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect
+                          x="80"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="320"
+                          height="15"
+                        />
+                        <rect
+                          x="113"
+                          y="117"
+                          rx="3"
+                          ry="3"
+                          width="320"
+                          height="15"
+                        />
+                        <rect
+                          x="590"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="80"
+                          height="15"
+                        />
+                        <rect
+                          x="790"
+                          y="10"
+                          rx="3"
+                          ry="3"
+                          width="180"
+                          height="15"
+                        />
+                      </clipPath>
+                      <linearGradient id="fill">
+                        <stop
+                          offset="0.599964"
+                          stop-color="#f3f3f3"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="-2; -2; 1"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#ecebeb"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="-1; -1; 2"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#f3f3f3"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            values="0; 0; 3"
+                            keyTimes="0; 0.25; 1"
+                            dur="2s"
+                            repeatCount="indefinite"
+                          ></animate>
+                        </stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="text-align: center" v-if="loading === false">
         <div class="table-responsive">
           <table class="table table-md">
             <thead>
@@ -42,7 +248,10 @@
                 <td>{{ item.code }}</td>
                 <td>{{ item.bookingDate | formatDate }}</td>
                 <td>
-                  <router-link :to="{ name: 'booking', params: {id: item.bookingId} }" class="btn btn-outline-primary btn-details">
+                  <router-link
+                    :to="{ name: 'booking', params: { id: item.bookingId } }"
+                    class="btn btn-outline-primary btn-details"
+                  >
                     Dettagli
                   </router-link>
                 </td>
