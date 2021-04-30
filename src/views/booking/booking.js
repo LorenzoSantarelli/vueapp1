@@ -33,7 +33,6 @@ export default {
         // Metodi di visualizzazione delle liste dei prezzi e delle informazioni del campo
         showInfo(){
             this.show = true;
-
         },
         showPrice(){
             this.showP = true;
@@ -41,6 +40,16 @@ export default {
         comprimi(){
             this.show = false;
             this.showP = false;
+        },
+        delete(){
+            BookingService.deleteBooking(this.id)
+            .then(data => {
+                this.booking = data;
+            })
+            .catch(error => {
+                console.log(error);
+                this.errors.push(error.response.data.message);
+            })
         }
     },
     // Inizio caricamento e richiamo del metodo getBooking al mounted della pagina

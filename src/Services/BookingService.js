@@ -41,5 +41,9 @@ export default {
     async priceList(){
         let res = await axios.get(Config.url + 'PriceOption/list', Config.config);
         return res.data;
+    },
+    async deleteBooking(bookingId){
+        let res = await axios.patch(Config.url + 'Booking/' + bookingId + '/cancel', Config.config);
+        return res.data;
     }
 }
