@@ -41,7 +41,7 @@ export default {
             this.show = false;
             this.showP = false;
         },
-        delete(){
+        deleteBooking(){
             BookingService.deleteBooking(this.id)
             .then(data => {
                 this.booking = data;
