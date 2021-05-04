@@ -44,7 +44,7 @@ export default {
         deleteBooking(){
             BookingService.deleteBooking(this.id)
             .then(data => {
-                this.booking = data;
+                console.log(data);
             })
             .catch(error => {
                 console.log(error);
