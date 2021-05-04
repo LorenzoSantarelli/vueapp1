@@ -41,10 +41,12 @@ export default {
             this.show = false;
             this.showP = false;
         },
+        //Richiamo del metodo di cancellazione della prenotazione
         deleteBooking(){
             BookingService.deleteBooking(this.id)
             .then(data => {
                 console.log(data);
+                this.$router.push({name: 'bookingList'});
             })
             .catch(error => {
                 console.log(error);
