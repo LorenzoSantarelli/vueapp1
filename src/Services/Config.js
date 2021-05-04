@@ -4,6 +4,7 @@ export default{
     name: 'Config',
     url: "https://staging.citypadelperugia.it/api/",
     
+    // interceptor per il bearer token
     config: axios.interceptors.request.use(
         function(config) {
          const token = localStorage.getItem('token')
