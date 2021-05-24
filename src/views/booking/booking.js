@@ -47,6 +47,7 @@ export default {
             .then(data => {
                 console.log(data);
                 this.$router.push({name: 'bookingList'});
+                this.createToast();
             })
             .catch(error => {
                 console.log(error);

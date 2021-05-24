@@ -30,6 +30,8 @@ export default {
                 userId: '',
                 options: []
             },
+            i: 0,
+            dates: [],
             errors: [],
             loading: false,
             codice: ''
@@ -44,9 +46,23 @@ export default {
         .catch(error => {
             this.errors.push(error.message);
             console.log(this.errors);
+        }),
+        BookingService.bookingCalendar(this.newBooking.courtId)
+        .then(data => {
+            this.dates = data;
+            console.log(data);
+        })
+        .catch(error => {
+            this.errors.push(error.message);
+            console.log(this.errors);
         })
     },
     methods: {
+        aa(){
+            for(this.i = 0; this.i <= this.dates.length; this.i++){
+                console.log(this.dates[this.i]);
+            }
+        },
         //Metodo di creazione della prenotazione
         create() {
 

@@ -6,9 +6,9 @@
     <br />
     <div class="row text-right" style="margin-bottom: 10px">
         <b-link>
-          <button class="btn btn-outline-danger btn-details" v-on:click="deleteBooking()">Cancella</button>
+          <button class="btn btn-outline-danger btn-details"  v-on:click="deleteBooking()">Cancella</button>
         </b-link>
-      </div>
+    </div>
 
     <!-- Visualizzazione spiner di caricamento al mount della pagina -->
     <div class="container" style="text-align: center" v-if="loading === true">
