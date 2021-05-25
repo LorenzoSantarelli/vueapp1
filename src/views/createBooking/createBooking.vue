@@ -59,12 +59,27 @@
       </div>
     </div>
     <div class="row mb-3">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+          Data
+        </button>
+      <ul class="dropdown-menu dropdown-menu-lg-end">
+      <li><button class="dropdown-item" type="button">Action</button></li>
+      <li><button class="dropdown-item" type="button">Another action</button></li>
+      <li><button class="dropdown-item" type="button">Something else here</button></li>
+      </ul>
+      </div>
+      <table class="table table-md">
+        
+      </table>
+    </div>
+    <!-- <div class="row mb-3">
       <div class="col">
         <label for="exampleFormControlTextarea1" class="form-label"
           >Inserisci data e ora</label
         >
-        <br />
-        <label>Inizio:</label>
+        <br /> -->
+        <!-- <label>Inizio:</label>
         <div class="input-group flex-nowrap text-center">
           <span
             class="input-group-text text-center"
@@ -117,7 +132,7 @@
           ></datetime>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row text-center">
       <button
         class="btn btn-outline-primary btn-details"
