@@ -59,15 +59,8 @@
       </div>
     </div>
     <div class="row mb-3">
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-          Data
-        </button>
-      <ul class="dropdown-menu dropdown-menu-lg-end">
-      <li><button class="dropdown-item" type="button">Action</button></li>
-      <li><button class="dropdown-item" type="button">Another action</button></li>
-      <li><button class="dropdown-item" type="button">Something else here</button></li>
-      </ul>
+      <div>
+        <date-picker v-model="date" :config="options" @dp-hide="doSomethingOnHide" @dp-change="doSomethingOnChange"></date-picker>
       </div>
       <table class="table table-md">
         

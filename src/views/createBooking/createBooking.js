@@ -2,6 +2,9 @@
 import BookingService from '../../Services/BookingService.js';
 import Vue from 'vue';
 import { Datetime } from 'vue-datetime'
+import datePicker from 'vue-bootstrap-datetimepicker';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 
 //Creazione del template per il componente vue-datetime che è stato importato
 Vue.extend({
@@ -18,6 +21,9 @@ Vue.extend({
 
 export default {
     name: 'createBooking',
+    components: {
+        datePicker,
+    },
     //Dichiarazione delle variabili
     data() {
         return {
@@ -28,13 +34,19 @@ export default {
                 voucher: null,
                 courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C',
                 userId: '',
-                options: []
+                options: [],
             },
+            date: new Date(),
+                options: {
+                    format: 'DD/MM/YYYY',
+                    useCurrent: true,
+                },
             errors: [],
             loading: false,
-            codice: ''
-        }
-    },
+            codice: '',
+    }
+},
+    
     //Richiamo del metodo proceList al caricamento della pagina
     mounted(){
         BookingService.priceList()
