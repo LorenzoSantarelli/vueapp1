@@ -47,8 +47,8 @@ export default {
         let res = await axios.patch(Config.url + 'Booking/' + bookingId + '/cancel', Config.config);
         return res.data;
     },
-    async bookingCalendar(courtId){
-        let res = await axios.get(Config.url + 'Booking/calendar/' + courtId);
-        return res;
+    async bookingCalendar(date, courtId){
+        let res = await axios.get(Config.url + 'Booking/calendar/' + courtId + '?date=' + date, Config.config);
+        return res.data;
     }
 }

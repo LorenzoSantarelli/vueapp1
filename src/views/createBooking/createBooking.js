@@ -31,7 +31,8 @@ export default {
                 options: []
             },
             i: 0,
-            dates: [],
+            occupiedDates: [],
+            date: "2021-05-26T00%3A00%3A00.000Z",
             errors: [],
             loading: false,
             codice: ''
@@ -46,22 +47,26 @@ export default {
         .catch(error => {
             this.errors.push(error.message);
             console.log(this.errors);
-        }),
-        BookingService.bookingCalendar(this.newBooking.courtId)
-        .then(data => {
-            this.dates = data;
-            console.log(data);
-        })
-        .catch(error => {
-            this.errors.push(error.message);
-            console.log(this.errors);
         })
     },
     methods: {
-        aa(){
-            for(this.i = 0; this.i <= this.dates.length; this.i++){
-                console.log(this.dates[this.i]);
-            }
+        // date => newBooking.start
+        dateChange(){
+            this.occupiedDates = [];
+            BookingService.bookingCalendar(this.date, this.newBooking.courtId)
+            .then(data => {
+                console.log(data);
+                this.occupiedDates.push(data);
+                for(this.i = 0; this.i <= this.occupiedDates.length; this.i++){
+                    if(this.date == this.occupiedDates[this.i]){
+                        this.errors.push("L'orario selezionato non è disponibile");
+                    }
+                }
+            })
+            .catch(error => {
+                this.errors.push(error.message);
+                console.log(this.errors);
+            })
         },
         //Metodo di creazione della prenotazione
         create() {
