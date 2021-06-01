@@ -32,7 +32,8 @@ export default {
             },
             i: 0,
             occupiedDates: [],
-            date: "2021-05-26T00%3A00%3A00.000Z",
+            totalDates: [],
+            date: '',
             errors: [],
             loading: false,
             codice: ''
@@ -40,6 +41,7 @@ export default {
     },
     //Richiamo del metodo proceList al caricamento della pagina
     mounted(){
+        this.addDate();
         BookingService.priceList()
         .then(data => {
             this.newBooking.options = data;
@@ -50,6 +52,15 @@ export default {
         })
     },
     methods: {
+        addDate(){
+                this.date = new Date();
+                console.log(this.date);
+                for(this.i = 0; this.i <= 20; this.i++){
+                    this.date.setDate(this.date.getDate() + 1);
+                    this.totalDates.push(this.date);
+                }
+                console.log(this.totalDates);
+        },
         // date => newBooking.start
         dateChange(){
             this.occupiedDates = [];
