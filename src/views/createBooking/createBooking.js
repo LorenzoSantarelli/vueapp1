@@ -2,6 +2,9 @@
 import BookingService from '../../Services/BookingService.js';
 import Vue from 'vue';
 import { Datetime } from 'vue-datetime'
+import datePicker from 'vue-bootstrap-datetimepicker';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 
 //Creazione del template per il componente vue-datetime che è stato importato
 Vue.extend({
@@ -18,6 +21,9 @@ Vue.extend({
 
 export default {
     name: 'createBooking',
+    components: {
+        datePicker,
+    },
     //Dichiarazione delle variabili
     data() {
         return {
@@ -28,17 +34,26 @@ export default {
                 voucher: null,
                 courtId: 'C9ED3289-077C-4F3B-95C3-764AB4599E4C',
                 userId: '',
-                options: []
+                options: [],
             },
+            date: new Date(),
+                options: {
+                    format: 'DD/MM/YYYY',
+                    useCurrent: true,
+                },
             i: 0,
-            dates: [],
+            occupiedDates: [],
+            totalDates: [],
+            date: '',
             errors: [],
             loading: false,
-            codice: ''
-        }
-    },
+            codice: '',
+    }
+},
+    
     //Richiamo del metodo proceList al caricamento della pagina
     mounted(){
+        this.addDate();
         BookingService.priceList()
         .then(data => {
             this.newBooking.options = data;
@@ -46,22 +61,35 @@ export default {
         .catch(error => {
             this.errors.push(error.message);
             console.log(this.errors);
-        }),
-        BookingService.bookingCalendar(this.newBooking.courtId)
-        .then(data => {
-            this.dates = data;
-            console.log(data);
-        })
-        .catch(error => {
-            this.errors.push(error.message);
-            console.log(this.errors);
         })
     },
     methods: {
-        aa(){
-            for(this.i = 0; this.i <= this.dates.length; this.i++){
-                console.log(this.dates[this.i]);
-            }
+        addDate(){
+                this.date = new Date();
+                console.log(this.date);
+                for(this.i = 0; this.i <= 20; this.i++){
+                    this.date.setDate(this.date.getDate() + 1);
+                    this.totalDates.push(this.date);
+                }
+                console.log(this.totalDates);
+        },
+        // date => newBooking.start
+        dateChange(){
+            this.occupiedDates = [];
+            BookingService.bookingCalendar(this.date, this.newBooking.courtId)
+            .then(data => {
+                console.log(data);
+                this.occupiedDates.push(data);
+                for(this.i = 0; this.i <= this.occupiedDates.length; this.i++){
+                    if(this.date == this.occupiedDates[this.i]){
+                        this.errors.push("L'orario selezionato non è disponibile");
+                    }
+                }
+            })
+            .catch(error => {
+                this.errors.push(error.message);
+                console.log(this.errors);
+            })
         },
         //Metodo di creazione della prenotazione
         create() {
